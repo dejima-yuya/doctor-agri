@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  is_useful: false
+  is_request: false
+  category_id: 
+  crop_id: 
+  user_id: 
+
+two:
+  title: MyString
+  is_useful: false
+  is_request: false
+  category_id: 
+  crop_id: 
+  user_id: 
