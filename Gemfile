@@ -55,5 +55,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise'
-gem 'rexml'
+
+gem 'devise' # 追記
+gem 'rexml' # 追記
+
+gem "capistrano", "~> 3.10", require: false # 追記
+gem "capistrano-rails", "~> 1.6", require: false # 追記
+gem 'capistrano-safe-deploy-to' # 追記
