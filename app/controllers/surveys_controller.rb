@@ -13,6 +13,8 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
+    @categories = Category.pluck(:title, :id).prepend(["", ""])
+    @crops = Crop.pluck(:title, :id).prepend(["", ""])
   end
 
   # GET /surveys/1/edit
@@ -22,6 +24,8 @@ class SurveysController < ApplicationController
   # POST /surveys or /surveys.json
   def create
     @survey = Survey.new(survey_params)
+    @categories = Category.pluck(:title, :id).prepend(["", ""])
+    @crops = Crop.pluck(:title, :id).prepend(["", ""])
 
     respond_to do |format|
       if @survey.save
