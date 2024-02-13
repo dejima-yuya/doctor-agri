@@ -4,11 +4,17 @@ Rails.application.routes.draw do
   resources :crops
   resources :categories
   resources :surveys
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # letter_openerを使用するためのルーティング
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
+  #管理者用のルーティング
+  namespace :admin do
+    resources :users
+  end  
 
 end

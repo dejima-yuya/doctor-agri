@@ -32,9 +32,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <% if current_user&.admin? %>
+    <div class="field">
+      <%= f.label :admin, "管理者権限" %><br />
+      <%= f.check_box :admin %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit t('.sign_up') %>
   </div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>

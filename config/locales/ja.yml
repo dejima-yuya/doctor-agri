@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: "名前"
+        phone_number: "電話番号"
+    models:
+      user: "ユーザー"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "を入力してください"
+              confirmation: "が一致しません"
+              too_short: "は%{count}文字以上で入力してください"
+            password_confirmation:
+              confirmation: "がパスワードと一致しません"
+      messages:
+        blank: "を入力してください"
+        confirmation: "が一致しません"
+        too_short: "は%{count}文字以上で入力してください"
+  errors:
+    attributes:
+      password:
+        blank: "を入力してください"
+        confirmation: "が一致しません"
+        too_short: "は%{count}文字以上で入力してください"
+    messages:
+      blank: "を入力してください"
+      confirmation: "が一致しません"
+      too_short: "は%{count}文字以上で入力してください"
