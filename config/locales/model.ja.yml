@@ -8,12 +8,10 @@ ja:
     attributes:
       survey:
         title: 質問内容
-        is_useful: チャットボットの回答が役立ったか
-        is_request: コンサルタントに回答を依頼するか
+        is_useful: チャットボットの回答が役立った
+        is_request: コンサルタントに回答を依頼する
         category: カテゴリー
-        category_id: カテゴリー
         crop: 作物の種類
-        crop_id: 作物の種類
   errors:
     format: "%{attribute}%{message}"
     messages:
