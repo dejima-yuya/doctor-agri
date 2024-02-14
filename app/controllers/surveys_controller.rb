@@ -25,6 +25,10 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
+        # メール送信設定
+        if @survey.is_request == true
+          SurveyMailer.with(to: "kktturu1993@gmail.com", name: "鶴").notify_admin.deliver_now
+        end
         format.html { redirect_to survey_url(@survey), notice: "Survey was successfully created." }
         format.json { render :show, status: :created, location: @survey }
       else
