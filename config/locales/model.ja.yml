@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+        user: ユーザー
+        survey: アンケート
+        category: カテゴリー
+        crop: 作物の種類
+    attributes:
+      survey:
+        title: 質問内容
+        is_useful: チャットボットの回答が役立ったか
+        is_request: コンサルタントに回答を依頼するか
+        category: カテゴリー
+        category_id: カテゴリー
+        crop: 作物の種類
+        crop_id: 作物の種類
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: を入力してください
+      too_long: は%{count}文字以内で入力してください
