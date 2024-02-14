@@ -32,5 +32,10 @@
   <%= @survey.is_request ? 'はい' : 'いいえ' %>
 </p>
 
+<p>
+  <strong>質問日時:</strong>
+  <%= @survey.created_at %>
+</p>
+
 <%= link_to '質問を編集する', edit_survey_path(@survey) %> |
 <%= link_to '質問一覧画面', surveys_path %>
