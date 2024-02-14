@@ -42,6 +42,9 @@ class SurveysController < ApplicationController
 
   # PATCH/PUT /surveys/1 or /surveys/1.json
   def update
+    @categories = Category.pluck(:title, :id).prepend(["", ""])
+    @crops = Crop.pluck(:title, :id).prepend(["", ""])
+    
     respond_to do |format|
       if @survey.update(survey_params)
         format.html { redirect_to survey_url(@survey), notice: "質問が更新されました！" }
