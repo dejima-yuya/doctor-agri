@@ -3,7 +3,7 @@ class SurveysController < ApplicationController
 
   # GET /surveys or /surveys.json
   def index
-    @surveys = Survey.all.order(created_at: :DESC)
+    @surveys = Survey.all.order(created_at: :DESC).page(params[:page]).per(10)
   end
 
   # GET /surveys/1 or /surveys/1.json
