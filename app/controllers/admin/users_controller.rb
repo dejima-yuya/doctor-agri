@@ -6,6 +6,7 @@ class Admin::UsersController < ApplicationController
   
     def index
       @users = User.all
+      @users = User.search_by_name(params[:keyword])
     end
 
     def show
