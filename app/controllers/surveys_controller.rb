@@ -19,6 +19,8 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1/edit
   def edit
+    @categories = Category.pluck(:title, :id).prepend(["", ""])
+    @crops = Crop.pluck(:title, :id).prepend(["", ""])
   end
 
   # POST /surveys or /surveys.json
