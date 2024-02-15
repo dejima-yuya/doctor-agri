@@ -1,0 +1,43 @@
+<h1>ユーザー管理</h1>
+
+<%= form_with(url: admin_users_path, method: :get, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :keyword, "ユーザー名検索" %>
+    <%= form.text_field :keyword, value: params[:keyword] %>
+  </div>
+  <div class="actions">
+    <%= form.submit "検索" %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>電話番号</th>
+      <th>メールアドレス</th>
+      <th>作成日</th> 
+      <th>管理者権限</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.phone_number %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+        <td><%= user.admin ? "あり" : "なし" %></td>
+        <td>
+          <%= link_to '詳細', admin_user_path(user) %>
+          <%= link_to '編集', edit_admin_user_path(user) %>
+          <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新規ユーザー登録', new_admin_user_path %>
+<br>
+<br>

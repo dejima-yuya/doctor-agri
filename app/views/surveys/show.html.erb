@@ -1,34 +1,39 @@
-<p id="notice"><%= notice %></p>
+<h1>質問の詳細</h1>
 
 <p>
-  <strong>Title:</strong>
+  <strong>ユーザー名:</strong>
+  <%= @survey.user.name %>
+</p>
+
+<p>
+  <strong>カテゴリー:</strong>
+  <%= @survey.category.title %>
+</p>
+
+<p>
+<strong>作物の種類:</strong>
+  <%= @survey.crop.title %>
+</p>
+
+<p>
+  <strong>質問内容:</strong>
   <%= @survey.title %>
 </p>
 
 <p>
-  <strong>Is useful:</strong>
-  <%= @survey.is_useful %>
+  <strong>チャットボットの回答が役立った:</strong>
+  <%= @survey.is_useful ? 'はい' : 'いいえ' %>
 </p>
 
 <p>
-  <strong>Is request:</strong>
-  <%= @survey.is_request %>
+  <strong>コンサルタントに回答を依頼する:</strong>
+  <%= @survey.is_request ? 'はい' : 'いいえ' %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @survey.category_id %>
+  <strong>質問日時:</strong>
+  <%= @survey.created_at %>
 </p>
 
-<p>
-  <strong>Crop:</strong>
-  <%= @survey.crop_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @survey.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<%= link_to '質問を編集する', edit_survey_path(@survey) %> |
+<%= link_to '質問一覧画面', surveys_path %>
