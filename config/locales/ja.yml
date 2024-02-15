@@ -4,8 +4,14 @@ ja:
       user:
         name: "名前"
         phone_number: "電話番号"
+      training:
+        title: タイトル
+        content: 内容
+        category_id: カテゴリー
+        crop_id: 作物
     models:
       user: "ユーザー"
+      training: "トレーニングデータ"
     errors:
       models:
         user:
@@ -16,6 +22,12 @@ ja:
               too_short: "は%{count}文字以上で入力してください"
             password_confirmation:
               confirmation: "がパスワードと一致しません"
+        training:
+          attributes:
+            crop:
+              required: "作物を入力してください"
+            category:
+              required: "カテゴリーを入力してください"
       messages:
         blank: "を入力してください"
         confirmation: "が一致しません"
@@ -30,3 +42,8 @@ ja:
       blank: "を入力してください"
       confirmation: "が一致しません"
       too_short: "は%{count}文字以上で入力してください"
+  helpers:
+    submit:
+      training:
+        create: "トレーニングデータを作成する"
+        update: "トレーニングデータを更新する"

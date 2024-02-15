@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trainings
   devise_for :users
   root 'surveys#new'
   resources :crops
