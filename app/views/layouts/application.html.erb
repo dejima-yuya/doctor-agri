@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, id: "#{key}") %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <h1>Agri Criative Seed</h1>

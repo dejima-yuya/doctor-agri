@@ -7,6 +7,7 @@ Category.create([
   { title: '病虫害予防' },
   { title: 'その他' }
 ])
+
 Crop.create([
   { title: 'イチゴ' },
   { title: 'さつまいも' },

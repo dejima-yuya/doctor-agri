@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 2024_02_14_074119) do
 
   create_table "surveys", force: :cascade do |t|
     t.string "title", null: false
-    t.boolean "is_useful", null: false
-    t.boolean "is_request", null: false
+    t.boolean "is_useful", default: false, null: false
+    t.boolean "is_request", default: false, null: false
     t.bigint "category_id", null: false
     t.bigint "crop_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
