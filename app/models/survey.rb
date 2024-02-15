@@ -8,6 +8,8 @@ class Survey < ApplicationRecord
   belongs_to :crop
 
   def self.ransackable_attributes(auth_object = nil)
-    ["category_id", "crop_id", "title", "is_useful", "is_request"]
+    ["category_id", "crop_id", "title", "is_useful", "is_request", "user_name"]
   end
+
+  scope :search_by_user_name, -> (query){ joins(:user).where("users.name LIKE ?", '%' + query + '%' ) }
 end

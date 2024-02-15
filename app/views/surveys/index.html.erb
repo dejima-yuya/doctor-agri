@@ -2,6 +2,8 @@
 
 <h3>質問の検索</h3>
 <%= search_form_for @q, url: surveys_path, method: :get do |f| %>
+  <%= f.label :user_name, 'ユーザー名' %>
+  <%= f.search_field :user_name, value: params.dig(:q, :user_name) %>
   <%= f.label :category_id_eq, 'カテゴリー' %>
   <%= f.collection_select :category_id_eq, Category.all, :id, :title, include_blank: '' %>
   <%= f.label :crop_id_eq, '作物の種類' %>
