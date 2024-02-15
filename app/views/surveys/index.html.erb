@@ -1,5 +1,21 @@
 <h1>質問一覧</h1>
 
+<h3>質問の検索</h3>
+<%= search_form_for @q, url: surveys_path, method: :get do |f| %>
+  <%= f.label :category_id_eq, 'カテゴリー' %>
+  <%= f.collection_select :category_id_eq, Category.all, :id, :title, include_blank: '' %>
+  <%= f.label :crop_id_eq, '作物の種類' %>
+  <%= f.collection_select :crop_id_eq, Crop.all, :id, :title, include_blank: '' %>
+  <%= f.label :title_cont, '質問内容' %>
+  <%= f.search_field :title_cont %>
+  <%= f.label :is_useful_eq, '回答が役立ったか' %>
+  <%= f.select :is_useful_eq, [['はい', true], ['いいえ', false]], include_blank: '' %>
+  <%= f.label :is_request_eq, '回答の依頼' %>
+  <%= f.select :is_request_eq, [['はい', true], ['いいえ', false]], include_blank: '' %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
 <table>
   <thead>
     <tr>

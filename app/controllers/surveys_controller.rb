@@ -1,9 +1,11 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: %i[ show edit update destroy ]
+  before_action :set_q, only: [:index]
 
   # GET /surveys or /surveys.json
   def index
-    @surveys = Survey.all.order(created_at: :DESC).page(params[:page]).per(10)
+    @q = Survey.ransack(params[:q])
+    @surveys = @q.result(distinct: true).all.order(created_at: :DESC).page(params[:page]).per(10)
   end
 
   # GET /surveys/1 or /surveys/1.json
@@ -75,5 +77,9 @@ class SurveysController < ApplicationController
     # Only allow a list of trusted parameters through.
     def survey_params
       params.require(:survey).permit(:title, :is_useful, :is_request, :category_id, :crop_id, :user_id)
+    end
+
+    def set_q
+      @q = Survey.ransack(params[:q])
     end
 end
