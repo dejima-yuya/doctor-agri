@@ -14,7 +14,7 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, id: "#{key}") %>
     <% end %>
-
+    
     <h1>Agri Criative Seed</h1>
   
     <% if current_user&.admin? %>

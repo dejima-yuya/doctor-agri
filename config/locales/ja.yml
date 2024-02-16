@@ -13,8 +13,8 @@ ja:
       training:
         title: "タイトル"
         content: "内容"
-        category_id: "カテゴリー"
-        crop_id: "作物"
+        category: "カテゴリー"
+        crop: "作物"
       survey:
         title: "質問内容"
         is_useful: "チャットボットの回答が役立った"
@@ -42,7 +42,7 @@ ja:
         training:
           attributes:
             crop:
-              required: "作物を入力してください"
+              required: "を入力してください"
             category:
               required: "カテゴリーを入力してください"
         survey:
