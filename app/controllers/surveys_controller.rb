@@ -29,6 +29,7 @@ class SurveysController < ApplicationController
   # POST /surveys or /surveys.json
   def create
     @survey = Survey.new(survey_params)
+    @survey.user_id = current_user.id
     @categories = Category.pluck(:title, :id).prepend(["", ""])
     @crops = Crop.pluck(:title, :id).prepend(["", ""])
 
