@@ -7,8 +7,8 @@ ja:
       training:
         title: タイトル
         content: 内容
-        category_id: カテゴリー
-        crop_id: 作物
+        crop: "作物"
+        category: "カテゴリー"
     models:
       user: "ユーザー"
       training: "トレーニングデータ"
@@ -33,9 +33,9 @@ ja:
         training:
           attributes:
             crop:
-              required: "作物を入力してください"
+              required: "を入力してください"
             category:
-              required: "カテゴリーを入力してください"
+              required: "を入力してください"
   date:
     abbr_day_names:
     - 日

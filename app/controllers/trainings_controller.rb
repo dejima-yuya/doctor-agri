@@ -8,6 +8,7 @@ class TrainingsController < ApplicationController
     @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
     @trainings = @trainings.where(crop_id: params[:crop_id]) if params[:crop_id].present?
     @trainings = @trainings.where(category_id: params[:category_id]) if params[:category_id].present?
+    @trainings = Training.page(params[:page]).per(10)
   end
 
   # GET /trainings/1 or /trainings/1.json
