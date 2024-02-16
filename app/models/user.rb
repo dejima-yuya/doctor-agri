@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :surveys
+
   validates :name, presence: true
   validates :phone_number, presence: true
   validates :password, presence: true
@@ -10,7 +12,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :surveys
   before_destroy :ensure_at_least_one_admin_remains
   before_update :ensure_at_least_one_admin_remains_on_update
   
