@@ -22,12 +22,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
+    <%= form.label :category %>
     <%= form.collection_select :category_id, @categories, :id, :title, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.label :crop_id %>
+    <%= form.label :crop %>
     <%= form.collection_select :crop_id, @crops, :id, :title, include_blank: true %>
   </div>
 
