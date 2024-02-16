@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Training, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "アソシエーションについて" do
+    it { should belong_to(:crop)}
+    it { should belong_to(:category)}
+  end
 end
