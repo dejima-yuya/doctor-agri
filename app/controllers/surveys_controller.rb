@@ -55,7 +55,7 @@ class SurveysController < ApplicationController
     
     respond_to do |format|
       if @survey.update(survey_params)
-        format.html { redirect_to survey_url(@survey), notice: "質問が更新されました！" }
+        format.html { redirect_to survey_url(@survey), notice: "アンケートが更新されました！" }
         format.json { render :show, status: :ok, location: @survey }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -69,7 +69,7 @@ class SurveysController < ApplicationController
     @survey.destroy
 
     respond_to do |format|
-      format.html { redirect_to surveys_url, notice: "質問が削除されました！" }
+      format.html { redirect_to surveys_url, notice: "アンケートが削除されました！" }
       format.json { head :no_content }
     end
   end
