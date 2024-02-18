@@ -11,6 +11,10 @@ class Survey < ApplicationRecord
     Survey.joins(:category).select('categories.title as category_title, count(surveys.id) as surveys_count').group('categories.id').order('surveys_count DESC')
   end
 
+  def self.crop_ranking
+    Survey.joins(:crop).select('crops.title as crop_title, count(surveys.id) as surveys_count').group('crops.id').order('surveys_count DESC')
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     ["category_id", "crop_id", "title", "is_useful", "is_request", "user_name"]
   end

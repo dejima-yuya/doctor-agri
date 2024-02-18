@@ -76,6 +76,7 @@ class SurveysController < ApplicationController
 
   def analysis
     @category_rankings = Survey.category_ranking
+    @crop_rankings = Survey.crop_ranking
   end
 
   private

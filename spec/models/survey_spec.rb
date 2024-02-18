@@ -29,5 +29,10 @@ RSpec.describe Survey, type: :model do
         Survey.joins(:category).select('categories.title as category_title, count(surveys.id) as surveys_count').group('categories.id').order('surveys_count DESC')
       end
     end
+    it "アンケートに含まれる各作物の「タイトル」と「累計数」を取得する & 各作物の累計数の降順で並び替える" do
+      def self.crop_ranking
+        Survey.joins(:crop).select('crops.title as crop_title, count(surveys.id) as surveys_count').group('crops.id').order('surveys_count DESC')
+      end
+    end
   end
 end
