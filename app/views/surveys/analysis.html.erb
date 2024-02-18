@@ -10,7 +10,7 @@
   <tbody>
     <% @category_rankings.each do |category_ranking| %>
       <tr>
-        <td><%= category_ranking.category_title %></td>
+        <td><%= link_to category_ranking.category_title, surveys_path(q: { category_id_eq: category_ranking.category_id }) %></td>
         <td><%= category_ranking.surveys_count %></td>
       </tr>
     <% end %>
@@ -27,7 +27,7 @@
   <tbody>
     <% @crop_rankings.each do |crop_ranking| %>
       <tr>
-        <td><%= crop_ranking.crop_title %></td>
+        <td><%= link_to crop_ranking.crop_title, surveys_path(q: { crop_id_eq: crop_ranking.crop_id }) %></td>
         <td><%= crop_ranking.surveys_count %></td>
       </tr>
     <% end %>
