@@ -107,6 +107,11 @@ GEM
       devise (>= 4.9.0)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -327,6 +332,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   devise-i18n
+  factory_bot_rails
   jbuilder (~> 2.7)
   kaminari
   letter_opener_web
