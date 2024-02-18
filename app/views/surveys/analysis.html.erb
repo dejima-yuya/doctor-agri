@@ -1,1 +1,18 @@
 <h1>アンケート分析</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>カテゴリー</th>
+      <th>累計質問数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @category_rankings.each do |category_ranking| %>
+      <tr>
+        <td><%= category_ranking.category_title %></td>
+        <td><%= category_ranking.surveys_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
