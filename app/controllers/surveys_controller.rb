@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index]
+  before_action :check_admin, only: %i[ index edit update show destroy analysis ]
 
   # GET /surveys or /surveys.json
   def index
@@ -39,7 +40,7 @@ class SurveysController < ApplicationController
         if @survey.is_request == true
           SurveyMailer.with(to: "kktturu1993@gmail.com", name: "鶴").notify_admin.deliver_now
         end
-        format.html { redirect_to survey_url(@survey), notice: "アンケートが送信されました！" }
+        format.html { redirect_to new_survey_path, notice: "アンケートが送信されました！" }
         format.json { render :show, status: :created, location: @survey }
       else
         format.html { render :new, status: :unprocessable_entity }
