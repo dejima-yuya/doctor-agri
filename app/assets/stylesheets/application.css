@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+/* 横並び表示用のスタイル */
+.nav-links {
+  display: flex;
+  align-items: center; /* アイテムを縦軸で中央揃えにする */
+  flex-wrap: wrap; /* 必要に応じて折り返し */
+}
+
+.nav-link {
+  margin: 0 10px; /* リンク間の余白を設定 */
+}

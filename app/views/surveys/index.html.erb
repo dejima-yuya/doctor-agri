@@ -1,7 +1,7 @@
-<h1>質問一覧</h1>
+<h1>アンケート一覧</h1>
 
-<h3>質問の検索</h3>
-<%= search_form_for @q, url: surveys_path, method: :get do |f| %>
+<h3>アンケートの検索</h3>
+<%= search_form_for @q, url: surveys_path, method: :get, html: { class: 'search-form' } do |f| %>
   <%= f.label :user_name, 'ユーザー名' %>
   <%= f.search_field :user_name, value: params.dig(:q, :user_name) %>
   <%= f.label :category_id_eq, 'カテゴリー' %>
@@ -41,7 +41,7 @@
         <td><%= survey.title %></td>
         <td><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
         <td><%= survey.is_request ? 'はい' : 'いいえ' %></td>
-        <td><%= survey.created_at %></td>
+        <td><%= survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= link_to '詳細', survey %></td>
         <td><%= link_to '編集', edit_survey_path(survey) %></td>
         <td><%= link_to '削除', survey, method: :delete, data: { confirm: '削除しますがよろしいですか?' } %></td>
@@ -51,7 +51,3 @@
 </table>
 
 <%= paginate @surveys %>
-
-<br>
-
-<%= link_to 'チャットボット画面', new_survey_path %>
