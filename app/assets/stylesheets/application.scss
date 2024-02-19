@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
 /* 横並び表示用のスタイル */
 .nav-links {
   display: flex;

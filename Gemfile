@@ -69,3 +69,5 @@ gem "capistrano-rails", "~> 1.6", require: false
 gem 'capistrano-safe-deploy-to'
 gem 'unicorn'
 gem 'devise-i18n'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'

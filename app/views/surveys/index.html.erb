@@ -15,7 +15,8 @@
   <%= f.label :is_request_eq, 'コンサルタントに回答を依頼する' %>
   <%= f.select :is_request_eq, [['はい', true], ['いいえ', false]], include_blank: '' %>
   <br>
-  <%= f.submit '検索' %>
+  <%= f.submit '検索', class: 'btn btn-secondary' %>
+
 <% end %>
 
 <table>
