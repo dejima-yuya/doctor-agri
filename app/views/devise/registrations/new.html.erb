@@ -30,6 +30,7 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <p id="password-match" style="color: red;"></p>
   </div>
 
   <% if current_user&.admin? %>
