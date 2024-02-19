@@ -14,24 +14,26 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, id: "#{key}") %>
     <% end %>
-    
-    <h1>Agri Criative Seed</h1>
-  
-    <% if current_user&.admin? %>
-      <%= link_to 'アンケート一覧', surveys_path %> <!-- 管理者のみに表示される -->
-      <%= link_to 'アンケート分析', analysis_surveys_path %> <!-- 管理者のみに表示される -->
-      <%= link_to 'ユーザー一覧', admin_users_path %> <!-- 管理者のみに表示される -->
-      <%= link_to 'トレーニングデータ一覧', trainings_path %> <!-- 管理者のみに表示される -->
-    <% end %>
 
-    <% if user_signed_in? %>
-      <%= link_to "チャットボット", new_survey_path %>
-      <%= link_to "アカウント設定", user_path(current_user) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+    <div class="nav-links">
+      <h1>Agri Criative Seed</h1>
+    
+      <% if current_user&.admin? %>
+        <div class="nav-link"><%= link_to 'アンケート一覧', surveys_path %></div> <!-- 管理者のみに表示される -->
+        <div class="nav-link"><%= link_to 'アンケート分析', analysis_surveys_path %></div> <!-- 管理者のみに表示される -->
+        <div class="nav-link"><%= link_to 'ユーザー一覧', admin_users_path %></div> <!-- 管理者のみに表示される -->
+        <div class="nav-link"><%= link_to 'トレーニングデータ一覧', trainings_path %></div> <!-- 管理者のみに表示される -->
+      <% end %>
+
+      <% if user_signed_in? %>
+        <div class="nav-link"><%= link_to "チャットボット", new_survey_path %></div>
+        <div class="nav-link"><%= link_to "プロフィール", user_path(current_user) %></div>
+        <div class="nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+      <% else %>
+        <div class="nav-link"><%= link_to "新規登録", new_user_registration_path %></div>
+        <div class="nav-link"><%= link_to "ログイン", new_user_session_path %></div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

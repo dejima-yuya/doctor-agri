@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Crop, type: :model do
+RSpec.describe Category, type: :model do
   describe "アソシエーションについて" do
     it { should have_many(:surveys)}
     it { should have_many(:trainings).dependent(:destroy)}
