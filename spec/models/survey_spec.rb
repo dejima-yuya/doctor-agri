@@ -1,7 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Survey, type: :model do
-  describe"self.category_ranking" do
+  describe "アソシエーションについて" do
+    it { should belong_to(:user)}
+    it { should belong_to(:category)}
+    it { should belong_to(:crop)}
+  end
+  describe "バリデーションについて" do
+    it { should validate_presence_of(:title)}
+    it { should validate_length_of(:title).is_at_most(200) }
+    it { should validate_inclusion_of(:is_useful).in_array([true, false]) }
+    it { should validate_inclusion_of(:is_request).in_array([true, false]) }
+  end
+  describe "ランキング機能について" do
     before do
       # カテゴリーを作成する
       category01 = Category.create(title:"育苗")
