@@ -8,11 +8,11 @@ class Survey < ApplicationRecord
   validates :is_request, inclusion: [true, false]
 
   def self.category_ranking
-    Survey.joins(:category).select('categories.id as category_id, categories.title as category_title, count(surveys.id) as surveys_count').group('categories.id').order('surveys_count DESC')
+    Category.left_joins(:surveys).select('categories.id as category_id, categories.title as category_title, count(surveys.id) as surveys_count').group('categories.id').order('surveys_count DESC')
   end
 
   def self.crop_ranking
-    Survey.joins(:crop).select('crops.id as crop_id, crops.title as crop_title, count(surveys.id) as surveys_count').group('crops.id').order('surveys_count DESC')
+    Crop.left_joins(:surveys).select('crops.id as crop_id, crops.title as crop_title, count(surveys.id) as surveys_count').group('crops.id').order('surveys_count DESC')
   end
 
   def self.ransackable_attributes(auth_object = nil)
