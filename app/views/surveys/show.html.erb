@@ -1,4 +1,4 @@
-<h1>質問の詳細</h1>
+<h1>アンケートの詳細</h1>
 
 <p>
   <strong>ユーザー名:</strong>
@@ -31,9 +31,9 @@
 </p>
 
 <p>
-  <strong>質問日時:</strong>
+  <strong>アンケート日時:</strong>
   <%= @survey.created_at %>
 </p>
 
-<%= link_to '質問を編集する', edit_survey_path(@survey) %> |
-<%= link_to '質問一覧画面', surveys_path %>
+<%= link_to '編集する', edit_survey_path(@survey) %> |
+<%= link_to 'アンケート一覧へ戻る', surveys_path %>

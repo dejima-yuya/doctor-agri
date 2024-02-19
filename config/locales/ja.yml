@@ -49,13 +49,7 @@ ja:
               required: "カテゴリーを入力してください"
         survey:
           attributes:
-            title:
-              required: "タイトルを入力してください"
-            is_useful:
-              required: "チャットボットの回答が役立ったかを入力してください"
-            is_request:
-              required: "コンサルタントに回答を依頼するかを入力してください"
             category:
-              required: "カテゴリーを入力してください"
+              required: "を入力してください"
             crop:
-              required: "作物を入力してください"
+              required: "を入力してください"
