@@ -31,3 +31,23 @@
   align-items: center; /* アイテムを縦方向の中央に揃える */
   gap: 10px; /* アイテム間の間隔 */
 }
+
+/* 下からふわっと */
+.fadeUp{
+  animation-name:fadeUpAnime;
+  animation-duration:5.0s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
+  
+  @keyframes fadeUpAnime{
+    from {
+      opacity: 0;
+    transform: translateY(100px);
+    }
+  
+    to {
+      opacity: 1;
+    transform: translateY(0);
+    }
+  }
