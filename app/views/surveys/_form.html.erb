@@ -10,17 +10,17 @@
     </div>
   <% end %>
 
-  <div class="form-group col-md-10">
+  <div class="form-group col-md-15">
     <%= form.label :チャットボットへの質問内容, class: 'form-label' %>
     <%= form.text_area :title, class: 'form-control' %>
   </div>
 
-  <div class="form-group col-md-5">
+  <div class="form-group col-md-7">
     <%= form.label :カテゴリー, class: 'form-label' %>
     <%= form.select :category_id, @categories, {}, { class: 'form-control' } %>
   </div>
 
-  <div class="form-group col-md-5">
+  <div class="form-group col-md-7">
     <%= form.label :作物の種類, class: 'form-label' %>
     <%= form.select :crop_id, @crops, {}, { class: 'form-control' } %>
   </div>
