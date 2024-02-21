@@ -1,7 +1,7 @@
 // Place all the styles related to the Surveys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.container {
+.top-container {
   display: flex;
   justify-content: center;
   align-items: start;
@@ -23,11 +23,12 @@
   align-items: center;
   padding: 20px; /* コンテンツ周りの余白 */
   background-color: #fff; /* 背景色を設定する場合 */
+  // 特異性を高めるために追加のセレクタを使用
+  > div.form-group {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
 }
 
-.search-form {
-  display: flex;
-  flex-wrap: wrap; /* コンテンツが多い場合に折り返し */
-  align-items: center; /* アイテムを縦方向の中央に揃える */
-  gap: 10px; /* アイテム間の間隔 */
-}

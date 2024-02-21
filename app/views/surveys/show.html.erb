@@ -1,39 +1,45 @@
+<div class="form-container mt-5">
 <h1>アンケートの詳細</h1>
 
-<p>
-  <strong>ユーザー名:</strong>
-  <%= @survey.user.name %>
-</p>
+  <div class="form-group mt-3">
+    <p>
+      ユーザー名 : 
+      <%= @survey.user.name %>
+    </p>
 
-<p>
-  <strong>カテゴリー:</strong>
-  <%= @survey.category.title %>
-</p>
+    <p>
+      カテゴリー : 
+      <%= @survey.category.title %>
+    </p>
 
-<p>
-<strong>作物の種類:</strong>
-  <%= @survey.crop.title %>
-</p>
+    <p>
+      作物の種類 : 
+      <%= @survey.crop.title %>
+    </p>
 
-<p>
-  <strong>質問内容:</strong>
-  <%= @survey.title %>
-</p>
+    <p>
+      質問内容 :
+      <%= @survey.title %>
+    </p>
 
-<p>
-  <strong>チャットボットの回答が役立った:</strong>
-  <%= @survey.is_useful ? 'はい' : 'いいえ' %>
-</p>
+    <p>
+      チャットボットの回答が役立った : 
+      <%= @survey.is_useful ? 'はい' : 'いいえ' %>
+    </p>
 
-<p>
-  <strong>コンサルタントに回答を依頼する:</strong>
-  <%= @survey.is_request ? 'はい' : 'いいえ' %>
-</p>
+    <p>
+      コンサルタントに回答を依頼する :
+      <%= @survey.is_request ? 'はい' : 'いいえ' %>
+    </p>
 
-<p>
-  <strong>アンケート日時:</strong>
-  <%= @survey.created_at %>
-</p>
+    <p>
+      アンケート日時 : 
+      <%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %>
+    </p>
+  </div>
+</div>
 
-<%= link_to '編集する', edit_survey_path(@survey) %> |
-<%= link_to 'アンケート一覧へ戻る', surveys_path %>
+<div class="form-row justify-content-center mt-4">
+  <%= link_to '編集する', edit_survey_path(@survey), class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'アンケート一覧', surveys_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>
