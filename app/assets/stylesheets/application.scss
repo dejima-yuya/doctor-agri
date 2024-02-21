@@ -18,10 +18,9 @@
 
 
 /* 横並び表示用のスタイル */
-.nav-links {
-  display: flex;
-  align-items: center; /* アイテムを縦軸で中央揃えにする */
-  flex-wrap: wrap; /* 必要に応じて折り返し */
+.nav-link {
+  margin: 0 10px; /* 既存の水平方向のマージン */
+  padding: 10px 0; /* 垂直方向のパディングを追加/調整 */
 }
 
 .nav-link {
@@ -33,7 +32,61 @@
   color: black;
 }
 
+#hamburger-menu {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+#side-nav {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px; /* 初期状態では画面外に隠れる */
+  height: 100%;
+  background-color: #f4f4f4;
+  transition: left 0.3s;
+  padding-top: 1em; /* 上部にスペースを追加 */
+  z-index: 1000; /* 他の要素よりも前面に表示 */
+}
+
+#side-nav.active {
+  left: 0; /* アクティブ時に画面内に表示 */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* 要素を両端に配置 */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-container, .menu-container {
+  flex: 1; /* 同じサイズでフレックスアイテムを拡張 */
+}
+
+/* ロゴを中心に配置するスタイルを削除し、左寄せに */
+.logo-container {
+  justify-content: flex-end; /* ロゴを中央から右端に */
+  order: 2; /* ロゴを右に移動 */
+}
+
+/* メニューを中央に配置するスタイルを削除し、右寄せに */
+.menu-container {
+  justify-content: flex-start; /* メニューを左端に */
+  order: 1; /* メニューを左に移動 */
+}
+
 .logo {
-  height: 50px; /* ロゴのサイズ調整 */
-  margin-left: 20px; /* 左の余白 */
+  margin: 0 auto; /* ロゴを中央に配置 */
+  height: 50px;
+}
+
+#close-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px; /* アイコンのサイズ調整 */
 }

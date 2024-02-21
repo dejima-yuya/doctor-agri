@@ -12,6 +12,7 @@ import "channels"
 import "./passwords"
 import "./messages"
 import '@fortawesome/fontawesome-free/js/all';
+import "./sidebar"
 
 Rails.start()
 Turbolinks.start()
