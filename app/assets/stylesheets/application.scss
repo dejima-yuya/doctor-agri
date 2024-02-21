@@ -27,3 +27,8 @@
 .nav-link {
   margin: 0 10px; /* リンク間の余白を設定 */
 }
+
+.custom-link:hover {
+  background-color: #d8d9db;
+  color: black;
+}
