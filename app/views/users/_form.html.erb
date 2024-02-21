@@ -34,6 +34,7 @@
   <div class="field">
     <%= f.label :password_confirmation, "パスワード確認" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <p id="password-match" style="color: red;"></p>
   </div>
 
   <div class="actions">
