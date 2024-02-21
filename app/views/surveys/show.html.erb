@@ -1,6 +1,12 @@
-<div class="table-container mt-4" style="max-width: 40%;">
-<h1 class="text-center">アンケートの詳細</h1>
-  <table class="table table-striped mt-3">
+<div class="form-container mt-4" style="max-width: 45%;">
+  <div style="color: #ffffff; text-align: center;">
+    <h1>アンケートの詳細</h1>
+  </div>
+  <table class="table table-striped mt-1">
+    <colgroup>
+      <col width="45%">
+      <col width="55%">
+    </colgroup>
     <tbody>
       <tr>
         <td>質問内容</td>
@@ -26,6 +32,7 @@
       <tr>
     </tbody>
   </table>
+</div>
 
 <div class="form-row justify-content-center mt-4">
   <%= link_to '編集する', edit_survey_path(@survey), class: 'btn btn-outline-secondary custom-link' %>
