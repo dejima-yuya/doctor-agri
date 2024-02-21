@@ -1,43 +1,31 @@
-<div class="form-container mt-5">
-<h1>アンケートの詳細</h1>
-
-  <div class="form-group mt-3">
-    <p>
-      ユーザー名 : 
-      <%= @survey.user.name %>
-    </p>
-
-    <p>
-      カテゴリー : 
-      <%= @survey.category.title %>
-    </p>
-
-    <p>
-      作物の種類 : 
-      <%= @survey.crop.title %>
-    </p>
-
-    <p>
-      質問内容 :
-      <%= @survey.title %>
-    </p>
-
-    <p>
-      チャットボットの回答が役立った : 
-      <%= @survey.is_useful ? 'はい' : 'いいえ' %>
-    </p>
-
-    <p>
-      コンサルタントに回答を依頼する :
-      <%= @survey.is_request ? 'はい' : 'いいえ' %>
-    </p>
-
-    <p>
-      アンケート日時 : 
-      <%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %>
-    </p>
-  </div>
-</div>
+<div class="table-container mt-4" style="max-width: 40%;">
+<h1 class="text-center">アンケートの詳細</h1>
+  <table class="table table-striped mt-3">
+    <tbody>
+      <tr>
+        <td>質問内容</td>
+        <td><%= @survey.title %></td>
+      <tr>
+        <td>カテゴリー</td>
+        <td><%= @survey.category.title %></td>
+      <tr>
+        <td>作物の種類</td>
+        <td><%= @survey.crop.title %></td>
+      <tr>
+        <td>チャットボットが役立った</td>
+        <td><%= @survey.is_useful ? 'はい' : 'いいえ' %></td>
+      <tr>
+        <td>コンサルタントに依頼する</td>
+        <td><%= @survey.is_request ? 'はい' : 'いいえ' %></td>
+      <tr>
+        <td>ユーザー名</td>
+        <td><%= @survey.user.name %></td>
+      <tr>
+        <td>アンケート日時</td>
+        <td><%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+      <tr>
+    </tbody>
+  </table>
 
 <div class="form-row justify-content-center mt-4">
   <%= link_to '編集する', edit_survey_path(@survey), class: 'btn btn-outline-secondary custom-link' %>
