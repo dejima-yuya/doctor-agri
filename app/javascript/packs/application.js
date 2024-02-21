@@ -11,6 +11,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "./passwords"
 import "./messages"
+import '@fortawesome/fontawesome-free/js/all';
 
 Rails.start()
 Turbolinks.start()

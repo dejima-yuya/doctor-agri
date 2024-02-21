@@ -17,21 +17,48 @@
 
     <div class="nav-links">
       <h1>Agri Criative Seed</h1>
-    
       <% if current_user&.admin? %>
-        <div class="nav-link"><%= link_to 'アンケート一覧', surveys_path %></div> <!-- 管理者のみに表示される -->
-        <div class="nav-link"><%= link_to 'アンケート分析', analysis_surveys_path %></div> <!-- 管理者のみに表示される -->
-        <div class="nav-link"><%= link_to 'ユーザー一覧', admin_users_path %></div> <!-- 管理者のみに表示される -->
-        <div class="nav-link"><%= link_to 'トレーニングデータ一覧', trainings_path %></div> <!-- 管理者のみに表示される -->
+        <%= link_to surveys_path, class: "nav-link" do %>
+          <i class="fa-solid fa-comment"></i>
+          アンケート一覧
+        <% end %>
+        <%= link_to analysis_surveys_path, class: "nav-link" do %>
+          <i class="fa-solid fa-ranking-star"></i>
+          アンケート分析
+        <% end %>
+        <%= link_to admin_users_path, class: "nav-link" do %>
+          <i class="fa-solid fa-users"></i>
+          ユーザー一覧
+        <% end %>
+        <%= link_to trainings_path, class: "nav-link" do %>
+          <i class="fa-solid fa-database"></i>
+          トレーニングデータ一覧
+        <% end %>
       <% end %>
 
       <% if user_signed_in? %>
-        <div class="nav-link"><%= link_to "チャットボット", new_survey_path %></div>
-        <div class="nav-link"><%= link_to "プロフィール", user_path(current_user) %></div>
-        <div class="nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+        <%= link_to new_survey_path, class: "nav-link" do %>
+          <i class="fa-solid fa-robot"></i>
+          チャットボット
+        <% end %>
+        <%= link_to user_path(current_user), class: "nav-link" do %>
+          <i class="fa-solid fa-user"></i>
+          プロフィール
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+          <i class="fa-solid fa-right-from-bracket"></i>
+          ログアウト
+        <% end %>
+
       <% else %>
-        <div class="nav-link"><%= link_to "新規登録", new_user_registration_path %></div>
-        <div class="nav-link"><%= link_to "ログイン", new_user_session_path %></div>
+        <%= link_to new_user_registration_path, class: "nav-link" do %>
+          <i class="fa-regular fa-user"></i>
+          新規登録
+        <% end %>
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="fa-solid fa-right-to-bracket"></i>
+          ログイン
+        <% end %>
       <% end %>
     </div>
     <%= yield %>

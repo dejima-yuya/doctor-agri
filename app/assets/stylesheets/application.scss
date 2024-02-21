@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+
 
 /* 横並び表示用のスタイル */
 .nav-links {
