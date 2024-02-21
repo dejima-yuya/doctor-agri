@@ -11,12 +11,21 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, id: "#{key}") %>
-    <% end %>
+    <div class="header">
+      <div class="logo-container">
+        <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
+      </div>
+      <div class="menu-container">
+        <div id="hamburger-menu">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </div>
 
-    <div class="nav-links">
-      <h1>Agri Criative Seed</h1>
+    <nav id="side-nav" class="nav-links">
+      <div id="close-menu">
+        <i class="fa-solid fa-xmark"></i> <!-- 閉じるアイコン -->
+      </div>
       <% if current_user&.admin? %>
         <%= link_to surveys_path, class: "nav-link" do %>
           <i class="fa-solid fa-comment"></i>
@@ -60,7 +69,8 @@
           ログイン
         <% end %>
       <% end %>
-    </div>
+    </nav>
+    
     <%= yield %>
   </body>
 </html>

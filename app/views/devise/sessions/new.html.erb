@@ -14,4 +14,8 @@
   <div class="actions">
     <%= f.submit t('.sign_in') %>
   </div>
+
+  <div class="registration-link">
+    <%= link_to t('アカウントをお持ちでない方はこちらをクリックください'), new_registration_path(resource_name) %>
+  </div>
 <% end %>
