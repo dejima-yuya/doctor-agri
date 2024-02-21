@@ -90,23 +90,36 @@
   cursor: pointer;
   font-size: 20px; /* アイコンのサイズ調整 */
 }
+
+.form-container:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: #22abce;
+  z-index: -1;
+  border-radius: 20px 20px 0 0;
+}
+
 .form-container {
+  position: relative;
   margin: auto;
   border: none;
   border-radius: 20px;
   box-shadow: 0px 14px 28px 0px rgba(0,0,0,0.2);
-  width: 600px; /* 必要に応じて調整 */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; /* コンテンツ周りの余白 */
-  background-color: #fff; /* 背景色を設定する場合 */
-  // 特異性を高めるために追加のセレクタを使用
+  padding-top: 5px;
   > div.form-group {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -118,7 +131,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; /* コンテンツ周りの余白 */
+  padding: 20px;
   background-color: #fff; /* 背景色を設定する場合 */
   // 特異性を高めるために追加のセレクタを使用
   > table {
