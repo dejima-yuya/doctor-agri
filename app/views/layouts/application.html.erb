@@ -16,7 +16,7 @@
     <% end %>
 
     <div class="nav-links">
-      <h1>Agri Criative Seed</h1>
+      <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
       <% if current_user&.admin? %>
         <%= link_to surveys_path, class: "nav-link" do %>
           <i class="fa-solid fa-comment"></i>
