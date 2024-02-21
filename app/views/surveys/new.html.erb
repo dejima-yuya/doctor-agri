@@ -11,8 +11,12 @@
     </iframe>
   </div>
 
-  <div class="form-container fadeUp">
-    <h3>サービス向上のためアンケートにご協力ください<i class="fa-solid fa-pen"></i></h3>
-    <%= render 'form', survey: @survey %>
+  <div class="top-form-container fadeUp">
+    <div style="color: #ffffff; text-align:center; padding-top: 7px;">
+      <h5>サービス向上のため<br>アンケートにご協力ください<i class="fa-solid fa-pen"></i></h5>
+    </div>
+    <div class="form-group mt-4">
+      <%= render 'form', survey: @survey %>
+    </div>
   </div>
 </div>
