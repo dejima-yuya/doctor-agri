@@ -8,7 +8,7 @@
   gap: 20px;
 }
 
-.top-form-container:before {
+.top-survey-form:before {
   content: "";
   width: 600px;
   display: block;
@@ -22,7 +22,7 @@
   border-radius: 20px 20px 0 0;
 }
 
-.top-form-container {
+.top-survey-form {
   position: relative;
   border: none;
   border-radius: 20px;
@@ -39,7 +39,7 @@
   }
 }
 
-.form-container:before {
+.survey-form:before {
   content: "";
   display: block;
   position: absolute;
@@ -52,7 +52,7 @@
   border-radius: 20px 20px 0 0;
 }
 
-.form-container {
+.survey-form {
   position: relative;
   margin: auto;
   border: none;
@@ -74,7 +74,7 @@
   }
 }
 
-.iframe-container, .form-container {
+.iframe-container, .survey-form {
   flex: 1;
 }
 
