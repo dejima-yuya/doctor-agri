@@ -47,6 +47,7 @@ group :development do
   gem 'spring'
   gem 'letter_opener_web'
   gem 'capistrano3-unicorn'   # 追記
+  gem 'rails-erd'   # 追記
 end
 
 group :test do
