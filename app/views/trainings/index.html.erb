@@ -3,25 +3,27 @@
 <div class="headline mt-4" style="width: 25rem; background-color: #df4c4c;">
   <h3 class="text-center">トレーニングデータ一覧</h3>
 </div>
+
 <div class="text-center mt-3">
   <%= link_to '新規作成', new_training_path, class: 'btn btn-outline-secondary custom-link' %>
 </div>
-<%= form_with(url: trainings_path, method: :get, local: true, html: { class: 'search-form mt-3' }) do |form| %>
-  <table class="table search-table" style="text-align: center; width: 800px;">
+
+<%= form_with(url: trainings_path, method: :get, local: true) do |form| %>
+  <table class="table search-table mt-3" style="text-align: center; width: 800px;">
     <tr>
     <td>
         <%= form.label :title, "タイトル", class: 'form-label mr-2' %>
-        <%= form.text_field :title, class: 'form-control' %>
+        <%= form.text_field :title, value: params[:title], name: "title", class: 'form-control' %>
       </td>
     </tr>
     <tr>
       <td>
         <%= form.label :crop_id, "作物の種類", class: 'form-label' %>
-        <%= form.select :crop_id, Crop.all.pluck(:title, :id), include_blank: true, class: 'form-control' %>
+        <%= form.select :crop_id, Crop.all.pluck(:title, :id), selected: params[:crop_id], include_blank: true, name: "crop_id", class: 'form-control' %>
       </td>
       <td>
         <%= form.label :category_id, "カテゴリーの種類", class: 'form-label' %>
-        <%= form.select :category_id, Category.all.pluck(:title, :id), include_blank: true, class: 'form-control' %>
+        <%= form.select :category_id, Category.all.pluck(:title, :id), selected: params[:category_id], include_blank: true, name: "category_id", class: 'form-control' %>
       </td>
     </tr>
   </table>

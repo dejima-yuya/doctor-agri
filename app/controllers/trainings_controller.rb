@@ -4,13 +4,19 @@ class TrainingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_admin, only: %i[new edit create update]
   # GET /trainings or /trainings.json
-  def index
-    @trainings = Training.all
-    @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
-    @trainings = @trainings.where(crop_id: params[:crop_id]) if params[:crop_id].present?
-    @trainings = @trainings.where(category_id: params[:category_id]) if params[:category_id].present?
-    @trainings = Training.page(params[:page]).per(10)
+def index
+  @trainings = Training.all
+  if params[:title].present?
+    @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%")
   end
+  if params[:crop_id].present?
+    @trainings = @trainings.where(crop_id: params[:crop_id])
+  end
+  if params[:category_id].present?
+    @trainings = @trainings.where(category_id: params[:category_id])
+  end
+  @trainings = @trainings.page(params[:page]).per(10)
+end
 
   # GET /trainings/1 or /trainings/1.json
   def show
