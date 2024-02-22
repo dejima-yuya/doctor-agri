@@ -1,5 +1,13 @@
-<h1>New Training</h1>
+<div class="form-container mt-4" style="max-width: 40%;">
+  <div style="color: #ffffff; text-align: center;">
+    <h1>トレーニングデータの作成</h1>
+  </div>
+  <div class="form-group mt-3">
+    <%= render 'form', training: @training %>
+  </div>
+</div>
 
-<%= render 'form', training: @training %>
-
-<%= link_to '戻る', trainings_path %>
+<div class="form-row justify-content-center mt-4">
+  <%= link_to '詳細を確認する', @training, class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'トレーニングデータ一覧', trainings_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>
