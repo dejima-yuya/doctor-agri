@@ -1,4 +1,4 @@
-<div class="form-container mt-4" style="max-width: 45%;">
+<div class="training-form mt-4" style="max-width: 40%;">
   <div style="color: #ffffff; text-align: center;">
     <h1>トレーニングの詳細</h1>
   </div>
@@ -8,13 +8,13 @@
         <td><strong>タイトル<br><br></strong><%= @training.title %></td>
       </tr>
       <tr>
-        <td><strong>内容<br><br></strong><%= @training.content %></td>
+        <td><strong>カテゴリー</strong><br><br><%= @training.category.title %></td>
       </tr>
       <tr>
-        <td><strong>カテゴリー</strong><br><br><%= @training.category&.title %></td>
+        <td><strong>作物</strong><br><br><%= @training.crop.title %></td>
       </tr>
       <tr>
-        <td><strong>作物</strong><br><br><%= @training.crop&.title %></td>
+        <td><strong>内容<br><br></strong><%= safe_join(@training.content.split("\n"),tag(:br)) %></td>
       </tr>
     </tbody>
   </table>

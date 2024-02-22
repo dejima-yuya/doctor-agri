@@ -1,7 +1,7 @@
 // Place all the styles related to the Trainings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.form-container:before {
+.training-form:before {
   content: "";
   display: block;
   position: absolute;
@@ -14,7 +14,7 @@
   border-radius: 20px 20px 0 0;
 }
 
-.form-container {
+.training-form {
   position: relative;
   margin: auto;
   border: none;
@@ -26,12 +26,12 @@
   align-items: center;
   padding-top: 5px;
   > div.form-group {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
   }
   p {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
   }
   td {
-    font-size: 1.2rem; // 好みのフォントサイズに調整
+    font-size: 1.0rem; // 好みのフォントサイズに調整
   }
 }
