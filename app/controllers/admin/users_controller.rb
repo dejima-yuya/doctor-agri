@@ -5,8 +5,11 @@ class Admin::UsersController < ApplicationController
   
   def index
     @users = User.all
-    @users = User.search_by_name(params[:keyword])
-    @users = User.page(params[:page]).per(10)
+    if params[:keyword].present?
+      @users = User.search_by_name(params[:keyword]).page(params[:page]).per(10)
+    else
+      @users = User.page(params[:page]).per(10)
+    end
   end
 
   def show
