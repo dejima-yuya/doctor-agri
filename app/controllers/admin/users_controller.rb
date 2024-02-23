@@ -1,8 +1,8 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_admin
+  before_action :authenticate_user!, except: [:guest_admin_sign_in]
+  before_action :check_admin, except: [:guest_admin_sign_in]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @users = User.all
     @users = User.search_by_name(params[:keyword])
@@ -42,6 +42,18 @@ class Admin::UsersController < ApplicationController
     else
       redirect_to admin_users_url, alert: @user.errors.full_messages.to_sentence
     end
+  end
+
+  # ゲスト管理者としてログインするためのアクションを追加
+  def guest_admin_sign_in
+    # ゲスト管理者ユーザーを見つけるか、存在しなければ作成します
+    user = User.find_or_create_by!(name: "guest", phone_number: "00000000000", email: 'guest_admin@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.admin = true # 管理者権限を付与
+    end
+    # ゲスト管理者ユーザーでログイン
+    sign_in user
+    redirect_to surveys_url, notice: 'ゲスト管理者としてログインしました。'
   end
 
   private

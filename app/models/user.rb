@@ -23,7 +23,7 @@ class User < ApplicationRecord
       all
     end
   end
-  
+
   private
   def ensure_at_least_one_admin_remains
     if admin?
