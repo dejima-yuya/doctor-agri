@@ -5,7 +5,7 @@
   <table class="table table-striped mt-1">
     <tbody>
       <tr>
-        <td><strong>タイトル<br><br></strong><%= @training.title %></td>
+        <td><strong>タイトル</strong><br><br><%= @training.title %></td>
       </tr>
       <tr>
         <td><strong>カテゴリー</strong><br><br><%= @training.category.title %></td>
@@ -14,7 +14,7 @@
         <td><strong>作物</strong><br><br><%= @training.crop.title %></td>
       </tr>
       <tr>
-        <td><strong>内容<br><br></strong><%= safe_join(@training.content.split("\n"),tag(:br)) %></td>
+        <td><strong>内容</strong><br><br><%= safe_join(@training.content.split("\n"),tag(:br)) %></td>
       </tr>
     </tbody>
   </table>
