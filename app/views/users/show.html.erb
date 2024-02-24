@@ -1,7 +1,26 @@
-<h1>ユーザー詳細</h1>
+<div class="user-form mt-4" style="max-width: 40%;">
+  <div style="color: #ffffff; text-align: center;">
+    <h1>プロフィール</h1>
+  </div>
+  <table class="table table-striped mt-1">
+    <tbody>
+      <tr>
+        <td><strong>名前</strong><br><br><%= @user.name %></td>
+      </tr>
+      <tr>
+        <td><strong>電話番号</strong><br><br><%= @user.phone_number %></td>
+      </tr>
+      <tr>
+        <td><strong>メールアドレス</strong><br><br><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td><strong>管理者権限</strong><br><br><%= @user.admin ? "あり" : "なし" %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>名前: <%= @user.name %></p>
-<p>電話番号: <%= @user.phone_number %></p>
-<p>メール: <%= @user.email %></p>
-<%= link_to '編集', edit_user_path(@user) %> |
-<%= link_to '削除', user_path(@user), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<div class="form-row justify-content-center mt-4">
+  <%= link_to 'プロフィールを編集する', edit_user_path(@user), class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'チャットボット画面', new_survey_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>
