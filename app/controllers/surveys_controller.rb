@@ -8,6 +8,7 @@ class SurveysController < ApplicationController
     @q = Survey.ransack(params[:q])
     @surveys = @q.result(distinct: true).all.order(created_at: :DESC).page(params[:page]).per(10)
     @surveys = @surveys.search_by_user_name(params[:q]&.[](:user_name)) if params[:q]&.[](:user_name).present?
+    raise RuntimeError, "意図的に発生させたエラーです。"
   end
 
   # GET /surveys/1 or /surveys/1.json
