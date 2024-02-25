@@ -1,23 +1,6 @@
 // Place all the styles related to the Admin::Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.user-list {
-  margin: auto;
-  padding: 20px;
-  border-width: 20px;
-  border-color : #000000;
-  background-color: #c7c7c7;
-  font-size: 1.1rem;
-  width: 100%;
-  // 特異性を高めるために追加のセレクタを使用
-  > table {
-    font-size: 1.1rem;
-  }
-  td {
-    font-size: 1.1rem;
-  }
-}
-
 .user-form:before {
   content: "";
   display: block;
@@ -51,27 +34,4 @@
   td {
     font-size: 1.0rem;
   }
-}
-
-.user-search{
-  margin: auto;
-  border: none;
-  padding: 20px;
-  background-color: #e8e6e6;
-  width: 500px;
-  // 特異性を高めるために追加のセレクタを使用
-  > table {
-    font-size: 1rem;
-  }
-  td {
-    font-size: 1rem;
-  }
-}
-
-.user-headline{
-  margin: auto;
-  padding: 0.5em;
-  border-radius: 10px;
-  color: #eaeaea;
-  background-color: #717171;
 }

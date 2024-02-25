@@ -1,9 +1,9 @@
-<div class="user-headline mt-4" style="width: 18rem">
+<div class="headline mt-4" style="width: 18rem; background-color: #717171;">
   <h2 class="text-center">ユーザー一覧</h2>
 </div>
 
 <%= form_with(url: admin_users_path, method: :get, local: true, html: { class: 'search-form mt-3' }) do |form| %>
-  <table class="table user-search" style="text-align: center; width: 25rem"">
+  <table class="table search-table" style="text-align: center; width: 25rem"">
     <tr>
       <td>
         <%= form.label :keyword, "ユーザー名検索" %>
@@ -18,7 +18,7 @@
   </table>
 <% end %>
 
-<table class="table table-striped user-list mt-3" style="max-width: 80%;">
+<table class="table table-striped data-list mt-3" style="max-width: 80%; background-color: #c7c7c7;">
   <thead style="color: #eaeaea; background-color: #717171;">
     <tr>
       <th>名前</th>
