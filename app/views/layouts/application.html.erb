@@ -43,6 +43,10 @@
           <i class="fa-solid fa-database"></i>
           トレーニングデータ一覧
         <% end %>
+        <%= link_to new_training_path, class: "nav-link" do %>
+          <i class="fa-solid fa-circle-plus"></i>
+          トレーニングデータ新規登録
+        <% end %>
       <% end %>
 
       <% if user_signed_in? %>
@@ -78,5 +82,11 @@
       <% end %>
     </div>
     <%= yield %>
+    <footer class="footer">
+      <div class="container text-center">
+        <p class="copyright">&copy; 2024 AcsApp. All rights reserved.</p>
+      </div>
+    </footer>
+
   </body>
 </html>
