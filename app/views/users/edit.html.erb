@@ -1,4 +1,4 @@
-<%= form_with(model: [:admin, @user], local: true) do |form| %>
+<%= form_with(model: @user, local: true) do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %>が発生しました:</h2>
@@ -45,11 +45,6 @@
       <br>
       <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
       <p id="password-match" style="color: red;"></p>
-    </div>
-
-    <div class="field">
-      <%= form.label :admin, "管理者権限" %>
-      <%= form.check_box :admin %>
     </div>
 
     <div class="actions mb-4">
