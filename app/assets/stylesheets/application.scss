@@ -16,6 +16,17 @@
 @import "bootstrap";
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 
+.flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px auto;
+  width: 25%;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #ffe9df;
+  border: none;
+}
 
 /* 横並び表示用のスタイル */
 .nav-link {
