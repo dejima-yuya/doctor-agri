@@ -117,4 +117,11 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # メール送信を行わない設定
+  config.action_mailer.delivery_method = :test
+
+  # メール送信のエラーを発生させない
+  config.action_mailer.raise_delivery_errors = false
+
 end

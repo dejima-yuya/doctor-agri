@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "アソシエーションについて" do
-    it { should have_many(:surveys)}
+    it { should have_many(:surveys).dependent(:destroy) }
   end
   
   describe "バリデーションについて" do
