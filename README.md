@@ -1,24 +1,26 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発言語
+* ruby 3.0.1
+* Rails 6.1.7.6
+## 就職Termの技術
+* gem devise
+* AWS EC2
+## カリキュラム外の技術
+* gem ransack
+## 実行手順
+```
+$ git clone git@github.com:TsuruKouhei/acs-project.git
+$ cd acs-project
+$ bundle install
+$ yarn install
+$ rails db:create && rails db:migrate
+$ rails s
+```
+## カタログ設計
+https://docs.google.com/spreadsheets/d/1SECdIW1-nu2nqOm48X8LOmmY20nMrMNmXS9C8yAKhz4/edit?usp=sharing
+## テーブル定義書
+https://docs.google.com/spreadsheets/d/1SECdIW1-nu2nqOm48X8LOmmY20nMrMNmXS9C8yAKhz4/edit?usp=sharing
+## ワイヤーフレーム
+https://docs.google.com/presentation/d/1yG9UPbMk0O3kFZC_L9NEeEvXAlcJC97JlmFDlE0453w/edit?usp=sharing
+## ER図
+![ER図](images/ER_diagram.png)
