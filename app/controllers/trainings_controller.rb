@@ -4,13 +4,19 @@ class TrainingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_admin, only: %i[new edit create update]
   # GET /trainings or /trainings.json
-  def index
-    @trainings = Training.all
-    @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
-    @trainings = @trainings.where(crop_id: params[:crop_id]) if params[:crop_id].present?
-    @trainings = @trainings.where(category_id: params[:category_id]) if params[:category_id].present?
-    @trainings = Training.page(params[:page]).per(10)
+def index
+  @trainings = Training.all
+  if params[:title].present?
+    @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%")
   end
+  if params[:crop_id].present?
+    @trainings = @trainings.where(crop_id: params[:crop_id])
+  end
+  if params[:category_id].present?
+    @trainings = @trainings.where(category_id: params[:category_id])
+  end
+  @trainings = @trainings.page(params[:page]).per(10)
+end
 
   # GET /trainings/1 or /trainings/1.json
   def show
@@ -35,7 +41,7 @@ class TrainingsController < ApplicationController
 
     respond_to do |format|
       if @training.save
-        format.html { redirect_to training_url(@training), notice: "トレーニングデータを登録しました" }
+        format.html { redirect_to training_url(@training), notice: "トレーニングデータが登録されました！" }
         format.json { render :show, status: :created, location: @training }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,7 +54,7 @@ class TrainingsController < ApplicationController
   def update
     respond_to do |format|
       if @training.update(training_params)
-        format.html { redirect_to training_url(@training), notice: "トレーニングデータを更新しました" }
+        format.html { redirect_to training_url(@training), notice: "トレーニングデータが更新されました！" }
         format.json { render :show, status: :ok, location: @training }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +68,7 @@ class TrainingsController < ApplicationController
     @training.destroy
 
     respond_to do |format|
-      format.html { redirect_to trainings_url, notice: "トレーニングデータを削除しました" }
+      format.html { redirect_to trainings_url, notice: "トレーニングデータが削除されました！" }
       format.json { head :no_content }
     end
   end

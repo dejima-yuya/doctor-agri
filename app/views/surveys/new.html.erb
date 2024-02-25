@@ -1,3 +1,7 @@
+<% if notice.present? %>
+  <p id="notice" class="flash-message"><%= notice %></p>
+<% end %>
+
 <div class="top-container container mt-5">
   <div class="iframe-container">
     <iframe src="https://app.chatsimple.ai/iframe23/de7c3014-4fb0-4271-a3c4-b41cc939a434/93482522-1995-47ce-b232-1e39da47e887/42bac7aa-c6d1-46f3-a05a-e01cd5f36c77" 
@@ -11,8 +15,12 @@
     </iframe>
   </div>
 
-  <div class="form-container fadeUp">
-    <h3>サービス向上のためアンケートにご協力ください<i class="fa-solid fa-pen"></i></h3>
-    <%= render 'form', survey: @survey %>
+  <div class="top-survey-form fadeUp">
+    <div style="color: #ffffff; text-align :center; padding-top: 7px;">
+      <h5>サービス向上のため<br>アンケートにご協力ください<i class="fa-solid fa-pen"></i></h5>
+    </div>
+    <div class="form-group mt-4">
+      <%= render 'form', survey: @survey %>
+    </div>
   </div>
 </div>

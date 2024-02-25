@@ -1,34 +1,49 @@
-<h1>Trainings</h1>
+<% if notice.present? %>
+  <p id="notice" class="flash-message"><%= notice %></p>
+<% end %>
+
+<div class="headline mt-4" style="width: 25rem; background-color: #df4c4c;">
+  <h3 class="text-center">トレーニングデータ一覧</h3>
+</div>
+
+<div class="text-center mt-3">
+  <%= link_to '新規作成', new_training_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>
 
 <%= form_with(url: trainings_path, method: :get, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :title, "タイトル" %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="field">
-    <%= form.label :crop_id, "作物の種類" %>
-    <%= form.select :crop_id, Crop.all.pluck(:title, :id), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= form.label :category_id, "カテゴリーの種類" %>
-    <%= form.select :category_id, Category.all.pluck(:title, :id), include_blank: true %>
-  </div>
-  <div class="actions">
-    <%= form.submit "検索" %>
+  <table class="table search-table mt-3" style="text-align: center; width: 800px;">
+    <tr>
+    <td>
+        <%= form.label :title, "タイトル", class: 'form-label mr-2' %>
+        <%= form.text_field :title, value: params[:title], name: "title", class: 'form-control' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :crop_id, "作物", class: 'form-label' %>
+        <%= form.select :crop_id, Crop.all.pluck(:title, :id), selected: params[:crop_id], include_blank: true, name: "crop_id", class: 'form-control' %>
+      </td>
+      <td>
+        <%= form.label :category_id, "カテゴリーの種類", class: 'form-label' %>
+        <%= form.select :category_id, Category.all.pluck(:title, :id), selected: params[:category_id], include_blank: true, name: "category_id", class: 'form-control' %>
+      </td>
+    </tr>
+  </table>
+  <div class="text-center mt-3">
+    <%= form.submit "検索", class: 'btn btn-secondary btn-lg' %>
   </div>
 <% end %>
 
-<table>
-  <thead>
+<table class="table table-striped data-list mt-3" style="max-width: 85%;">
+  <thead style="color: #edefef; background-color: #df4c4c;">
     <tr>
       <th>タイトル</th>
       <th>カテゴリー</th>
-      <th>作物の種類</th>
+      <th>作物</th>
       <th>登録日時</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @trainings.each do |training| %>
       <tr>
@@ -36,16 +51,14 @@
         <td><%= training.category.title %></td>
         <td><%= training.crop.title %></td>
         <td><%= training.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
-        <td><%= link_to '詳細', training %></td>
-        <td><%= link_to '編集', edit_training_path(training) %></td>
-        <td><%= link_to '削除', training, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', training, class: 'btn btn-primary btn' %></td>
+        <td><%= link_to '編集', edit_training_path(training), class: 'btn btn-warning btn' %></td>
+        <td><%= link_to '削除', training, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= paginate @trainings %>
-
-<br>
-
-<%= link_to 'トレーニングデータ新規登録', new_training_path %>
+<div class="table-pagination">
+  <%= paginate @trainings %>
+</div>

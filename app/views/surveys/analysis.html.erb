@@ -1,43 +1,39 @@
-<h1 class="text-center">アンケート分析</h1>
-
-<div class="ranking-container mt-4" style="max-width: 25%;">
-  <table class="table table-striped">
-    <thead style="background-color: #facaaa;">
-      <tr>
-        <th></th>
-        <th>カテゴリー</th>
-        <th>累計質問数</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @category_rankings.each_with_index do |category_ranking, index| %>
-        <tr>
-          <td><%= index + 1 %></td>
-          <td><%= link_to category_ranking.category_title, surveys_path(q: { category_id_eq: category_ranking.category_id }) %></td>
-          <td><%= category_ranking.surveys_count %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="headline mt-4" style="width: 20rem; background-color: #22abce;">
+  <h3 class="text-center">アンケート分析</h3>
 </div>
 
-<div class="ranking-container mt-4" style="max-width: 25%;">
-  <table class="table table-striped">
-    <thead style="background-color: #aaf2c4;">
-      <tr>
-        <th></th>
-        <th>作物の種類</th>
-        <th>累計質問数</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @crop_rankings.each_with_index do |crop_ranking, index| %>
+<div class="top-container container mt-5">
+    <table class="table table-striped data-list" style="text-align: center; width: 450px;">
+      <thead style="background-color: #facaaa;">
         <tr>
-          <td><%= index + 1 %></td>
-          <td><%= link_to crop_ranking.crop_title, surveys_path(q: { crop_id_eq: crop_ranking.crop_id }) %></td>
-          <td><%= crop_ranking.surveys_count %></td>
+          <th>カテゴリー</th>
+          <th>累計質問数</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @category_rankings.each_with_index do |category_ranking, index| %>
+          <tr>
+            <td><%= link_to category_ranking.category_title, surveys_path(q: { category_id_eq: category_ranking.category_id }) %></td>
+            <td><%= category_ranking.surveys_count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <table class="table table-striped data-list" style="text-align: center; width: 450px;">
+      <thead style="background-color: #aaf2c4;">
+        <tr>
+          <th>作物</th>
+          <th>累計質問数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @crop_rankings.each_with_index do |crop_ranking, index| %>
+          <tr>
+            <td><%= link_to crop_ranking.crop_title, surveys_path(q: { crop_id_eq: crop_ranking.crop_id }) %></td>
+            <td><%= crop_ranking.surveys_count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>

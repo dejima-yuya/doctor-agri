@@ -1,22 +1,30 @@
-<p>
-  <strong>タイトル:</strong>
-  <%= @training.title %>
-</p>
+<% if notice.present? %>
+  <p id="notice" class="flash-message"><%= notice %></p>
+<% end %>
 
-<p>
-  <strong>内容:</strong>
-  <%= @training.content %>
-</p>
+<div class="training-form mt-4" style="max-width: 40%;">
+  <div style="color: #ffffff; text-align: center;">
+    <h1>トレーニングデータ</h1>
+  </div>
+  <table class="table table-striped mt-1">
+    <tbody>
+      <tr>
+        <td><strong>タイトル</strong><br><br><%= @training.title %></td>
+      </tr>
+      <tr>
+        <td><strong>カテゴリー</strong><br><br><%= @training.category.title %></td>
+      </tr>
+      <tr>
+        <td><strong>作物</strong><br><br><%= @training.crop.title %></td>
+      </tr>
+      <tr>
+        <td><strong>内容</strong><br><br><%= safe_join(@training.content.split("\n"),tag(:br)) %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>カテゴリー:</strong>
-  <%= @training.category&.title %>
-</p>
-
-<p>
-  <strong>作物:</strong>
-  <%= @training.crop&.title %>
-</p>
-
-<%= link_to '編集', edit_training_path(@training) %> |
-<%= link_to '戻る', trainings_path %>
+<div class="form-row justify-content-center mt-4">
+  <%= link_to 'トレーニングデータを編集する', edit_training_path(@training), class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'トレーニングデータ一覧', trainings_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>

@@ -1,23 +1,36 @@
-<h1>ユーザー管理</h1>
-
-<%= form_with(url: admin_users_path, method: :get, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :keyword, "ユーザー名検索" %>
-    <%= form.text_field :keyword, value: params[:keyword] %>
-  </div>
-  <div class="actions">
-    <%= form.submit "検索" %>
-  </div>
+<% if notice.present? %>
+  <p id="notice" class="flash-message"><%= notice %></p>
 <% end %>
 
-<table>
-  <thead>
+<div class="headline mt-4" style="width: 18rem; background-color: #717171;">
+  <h2 class="text-center">ユーザー一覧</h2>
+</div>
+
+<%= form_with(url: admin_users_path, method: :get, local: true, html: { class: 'search-form mt-3' }) do |form| %>
+  <table class="table search-table" style="text-align: center; width: 25rem"">
+    <tr>
+      <td>
+        <%= form.label :keyword, "ユーザー名検索" %>
+        <%= form.text_field :keyword, value: params[:keyword], class: 'form-control', size: "15" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center">
+        <%= form.submit "検索", class: 'btn btn-secondary btn-lg' %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+<table class="table table-striped data-list mt-3" style="max-width: 80%; background-color: #c7c7c7;">
+  <thead style="color: #eaeaea; background-color: #717171;">
     <tr>
       <th>名前</th>
       <th>電話番号</th>
       <th>メールアドレス</th>
       <th>作成日</th> 
       <th>管理者権限</th> 
+      <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
@@ -29,19 +42,15 @@
         <td><%= user.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td><%= user.admin ? "あり" : "なし" %></td>
         <td>
-          <%= link_to '詳細', admin_user_path(user) %>
-          <%= link_to '編集', edit_admin_user_path(user) %>
-          <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <%= link_to '詳細', admin_user_path(user), class: 'btn btn-primary btn' %>
+          <%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-warning btn' %>
+          <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger btn' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= paginate @users %>
-
-<br>
-
-<%= link_to '新規ユーザー登録', new_admin_user_path %>
-<br>
-<br>
+<div class="table-pagination mt-3">
+  <%= paginate @users %>
+</div>

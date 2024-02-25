@@ -1,5 +1,3 @@
-<h1>ユーザー情報の編集</h1>
-
 <%= form_with(model: [:admin, @user], local: true) do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -13,40 +11,54 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name, "名前" %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="user-form mt-4" style="max-width: 30%;">
+    <div style="color: #ffffff; text-align: center;">
+      <h1>ユーザー情報の編集</h1>
+    </div>
 
-  <div class="field">
-    <%= form.label :phone_number, "電話番号" %>
-    <%= form.text_field :phone_number %>
-  </div>
+    <div class="field mt-3">
+      <%= form.label :name, "名前" %>
+      <br>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email, "メールアドレス" %>
-    <%= form.email_field :email %>
-  </div>
+    <div class="field">
+      <%= form.label :phone_number, "電話番号" %>
+      <br>
+      <%= form.text_field :phone_number %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= form.label :email, "メールアドレス" %>
+      <br>
+      <%= form.email_field :email %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation, "パスワード確認" %>
-    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
-    <p id="password-match" style="color: red;"></p>
-  </div>
+    <div class="field">
+      <%= form.label :password %>
+      <br>
+      <%= form.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :admin, "管理者権限" %>
-    <%= form.check_box :admin %>
-  </div>
+    <div class="field">
+      <%= form.label :password_confirmation, "パスワード確認" %>
+      <br>
+      <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+      <p id="password-match" style="color: red;"></p>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "更新" %>
+    <div class="field">
+      <%= form.label :admin, "管理者権限" %>
+      <%= form.check_box :admin %>
+    </div>
+
+    <div class="actions mb-4">
+      <%= form.submit "更新する", class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
 
-<%= link_to '戻る', admin_users_path %>
+<div class="form-row justify-content-center mt-4">
+  <%= link_to 'ユーザー情報を確認する', admin_user_path(@user), class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'ユーザー一覧', admin_users_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>

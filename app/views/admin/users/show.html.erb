@@ -1,24 +1,30 @@
-<h1>ユーザー詳細</h1>
+<% if notice.present? %>
+  <p id="notice" class="flash-message"><%= notice %></p>
+<% end %>
 
-<p>
-  <strong>名前:</strong>
-  <%= @user.name %>
-</p>
+<div class="user-form mt-4" style="max-width: 30%;">
+  <div style="color: #ffffff; text-align: center;">
+    <h1>ユーザー情報</h1>
+  </div>
+  <table class="table table-striped mt-1">
+    <tbody>
+      <tr>
+        <td><strong>名前</strong><br><br><%= @user.name %></td>
+      </tr>
+      <tr>
+        <td><strong>電話番号</strong><br><br><%= @user.phone_number %></td>
+      </tr>
+      <tr>
+        <td><strong>メールアドレス</strong><br><br><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td><strong>管理者権限</strong><br><br><%= @user.admin ? "あり" : "なし" %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>電話番号:</strong>
-  <%= @user.phone_number %>
-</p>
-
-<p>
-  <strong>メールアドレス:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>管理者権限:</strong>
-  <%= @user.admin ? "あり" : "なし" %>
-</p>
-
-<%= link_to '編集', edit_admin_user_path(@user) %> |
-<%= link_to '戻る', '#', onclick: 'history.back();return false;' %>
+<div class="form-row justify-content-center mt-4">
+  <%= link_to 'ユーザー情報を編集する', edit_admin_user_path(@user), class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'ユーザー一覧', admin_users_path, class: 'btn btn-outline-secondary custom-link' %>
+</div>
