@@ -74,13 +74,9 @@
         <% end %>
       <% end %>
     </nav>
-    <div id="flash-messages">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>">
-          <%= message %>
-        </div>
-      <% end %>
-    </div>
+    <% if notice.present? %>
+      <p id="notice" class="flash-message"><%= notice %></p>
+    <% end %>
     <%= yield %>
     <footer class="footer">
       <div class="container text-center">

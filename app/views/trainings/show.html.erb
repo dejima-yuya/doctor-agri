@@ -1,7 +1,3 @@
-<% if notice.present? %>
-  <p id="notice" class="flash-message"><%= notice %></p>
-<% end %>
-
 <div class="training-form mt-4" style="max-width: 40%;">
   <div style="color: #ffffff; text-align: center;">
     <h1>トレーニングデータ</h1>
@@ -24,7 +20,7 @@
   </table>
 </div>
 
-<div class="form-row justify-content-center mt-4">
+<div class="form-row justify-content-center mt-4 mb-5">
   <%= link_to 'トレーニングデータを編集する', edit_training_path(@training), class: 'btn btn-outline-secondary custom-link' %>
   <%= link_to 'トレーニングデータ一覧', trainings_path, class: 'btn btn-outline-secondary custom-link' %>
 </div>

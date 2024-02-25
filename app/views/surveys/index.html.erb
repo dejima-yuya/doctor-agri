@@ -1,8 +1,4 @@
-<% if notice.present? %>
-  <p id="notice" class="flash-message"><%= notice %></p>
-<% end %>
-
-<div class="headline mt-4" style="width: 20rem; background-color: #22abce;">
+<div class="headline mt-4" style="width: 20rem; background-color: #5fa3b4;">
   <h3 class="text-center">アンケート一覧</h3>
 </div>
 
@@ -45,7 +41,7 @@
 <% end %>
 
 <table class="table table-striped data-list mt-3" style="max-width: 93%;">
-  <thead style="color: #edefef; background-color: #22abce;">
+  <thead style="color: #edefef; background-color: #5fa3b4;">
     <tr>
       <th>ユーザー名</th>
       <th>質問内容</th>
@@ -75,6 +71,6 @@
   </tbody>
 </table>
 
-<div class="table-pagination mt-3">
+<div class="pagination mt-4 mb-5">
   <%= paginate @surveys %>
 </div>
