@@ -41,7 +41,7 @@ end
 
     respond_to do |format|
       if @training.save
-        format.html { redirect_to training_url(@training), notice: "トレーニングデータを登録しました" }
+        format.html { redirect_to training_url(@training), notice: "トレーニングデータが登録されました！" }
         format.json { render :show, status: :created, location: @training }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ end
   def update
     respond_to do |format|
       if @training.update(training_params)
-        format.html { redirect_to training_url(@training), notice: "トレーニングデータを更新しました" }
+        format.html { redirect_to training_url(@training), notice: "トレーニングデータが更新されました！" }
         format.json { render :show, status: :ok, location: @training }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ end
     @training.destroy
 
     respond_to do |format|
-      format.html { redirect_to trainings_url, notice: "トレーニングデータを削除しました" }
+      format.html { redirect_to trainings_url, notice: "トレーニングデータが削除されました！" }
       format.json { head :no_content }
     end
   end

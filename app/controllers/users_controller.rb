@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   
     if @user.update(user_params)
       bypass_sign_in(@user) # ユーザーを再認証
-      redirect_to @user, notice: 'ユーザー情報が更新されました。'
+      redirect_to @user, notice: 'プロフィールが更新されました！'
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to new_user_session_path, notice: 'ユーザーが削除されました。'
+    redirect_to new_user_session_path, notice: 'アカウントが削除されました！'
   end
 
   private
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def correct_user
     unless current_user == @user
-      redirect_to root_path, alert: '他のユーザーの情報にアクセスすることはできません。'
+      redirect_to root_path, alert: '他のユーザーの情報にアクセスすることはできません！'
     end
   end
 

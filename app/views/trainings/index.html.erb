@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <p id="notice" class="flash-message"><%= notice %></p>
+<% end %>
 
 <div class="headline mt-4" style="width: 25rem; background-color: #df4c4c;">
   <h3 class="text-center">トレーニングデータ一覧</h3>
