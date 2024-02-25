@@ -1,6 +1,6 @@
 <div class="survey-form mt-4" style="max-width: 30%;">
   <div style="color: #ffffff; text-align: center;">
-    <h1>アンケートの編集</h1>
+    <h1>アンケートの修正</h1>
   </div>
   <div class="form-group mt-3">
     <%= render 'form', survey: @survey %>
@@ -8,6 +8,6 @@
 </div>
 
 <div class="form-row justify-content-center mt-4">
-  <%= link_to '詳細を確認する', @survey, class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'アンケートの詳細を確認する', @survey, class: 'btn btn-outline-secondary custom-link' %>
   <%= link_to 'アンケート一覧', surveys_path, class: 'btn btn-outline-secondary custom-link' %>
 </div>

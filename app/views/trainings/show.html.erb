@@ -1,6 +1,6 @@
 <div class="training-form mt-4" style="max-width: 40%;">
   <div style="color: #ffffff; text-align: center;">
-    <h1>トレーニングの詳細</h1>
+    <h1>トレーニングデータ</h1>
   </div>
   <table class="table table-striped mt-1">
     <tbody>
@@ -21,6 +21,6 @@
 </div>
 
 <div class="form-row justify-content-center mt-4">
-  <%= link_to '編集する', edit_training_path(@training), class: 'btn btn-outline-secondary custom-link' %>
+  <%= link_to 'トレーニングデータを編集する', edit_training_path(@training), class: 'btn btn-outline-secondary custom-link' %>
   <%= link_to 'トレーニングデータ一覧', trainings_path, class: 'btn btn-outline-secondary custom-link' %>
 </div>
