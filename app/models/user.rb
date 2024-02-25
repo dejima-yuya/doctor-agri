@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :surveys
+  has_many :surveys, dependent: :destroy
 
   validates :name, presence: true
   validates :phone_number, presence: true
@@ -23,7 +23,7 @@ class User < ApplicationRecord
       all
     end
   end
-  
+
   private
   def ensure_at_least_one_admin_remains
     if admin?

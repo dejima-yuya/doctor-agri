@@ -66,27 +66,16 @@
 
 .header {
   display: flex;
-  justify-content: space-between; /* 要素を両端に配置 */
+  justify-content: center; /* ヘッダー内の要素を中央寄せに変更 */
   align-items: center;
   padding: 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.logo-container, .menu-container {
-  flex: 1; /* 同じサイズでフレックスアイテムを拡張 */
-}
-
-/* ロゴを中心に配置するスタイルを削除し、左寄せに */
-.logo-container {
-  justify-content: flex-end; /* ロゴを中央から右端に */
-  order: 2; /* ロゴを右に移動 */
-}
-
-/* メニューを中央に配置するスタイルを削除し、右寄せに */
 .menu-container {
-  justify-content: flex-start; /* メニューを左端に */
-  order: 1; /* メニューを左に移動 */
+  position: absolute; /* メニューを絶対位置で右端に配置 */
+  left: 20px; /* 左端からの距離を設定 */
 }
 
 .logo {
