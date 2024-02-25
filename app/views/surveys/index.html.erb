@@ -1,7 +1,3 @@
-<% if notice.present? %>
-  <p id="notice" class="flash-message"><%= notice %></p>
-<% end %>
-
 <div class="headline mt-4" style="width: 20rem; background-color: #22abce;">
   <h3 class="text-center">アンケート一覧</h3>
 </div>
@@ -75,6 +71,6 @@
   </tbody>
 </table>
 
-<div class="table-pagination mt-3">
+<div class="pagination mt-4 mb-4">
   <%= paginate @surveys %>
 </div>
