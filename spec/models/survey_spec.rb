@@ -18,7 +18,7 @@ RSpec.describe Survey, type: :model do
       category01 = Category.create(title:"育苗")
       category02 = Category.create(title:"管理")
       category03 = Category.create(title:"収穫")
-      # 作物の種類を作成する
+      # 作物を作成する
       crop01 = Crop.create(title:"イチゴ")
       crop02 = Crop.create(title:"さつまいも")
       crop03 = Crop.create(title:"ぶどう")

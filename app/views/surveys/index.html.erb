@@ -20,7 +20,7 @@
         <%= f.collection_select :category_id_eq, Category.all, :id, :title, include_blank: '', class: 'form-control' %>
       </td>
       <td>
-        <%= f.label :crop_id_eq, '作物の種類', class: 'form-label' %>
+        <%= f.label :crop_id_eq, '作物', class: 'form-label' %>
         <%= f.collection_select :crop_id_eq, Crop.all, :id, :title, include_blank: '', class: 'form-control' %>
       </td>
     </tr>
@@ -46,7 +46,7 @@
       <th>ユーザー名</th>
       <th>質問内容</th>
       <th>カテゴリー</th>
-      <th>作物の種類</th>
+      <th>作物</th>
       <th>チャットボット<br>が役立った</th>
       <th>コンサルタント<br>に依頼する</th>
       <th>アンケート日時</th>

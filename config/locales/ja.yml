@@ -5,7 +5,7 @@ ja:
       training: "トレーニングデータ"
       survey: "アンケート"
       category: "カテゴリー"
-      crop: "作物の種類"
+      crop: "作物"
     attributes:
       user:
         name: "名前"
@@ -20,7 +20,7 @@ ja:
         is_useful: "チャットボットの回答が役立った"
         is_request: "コンサルタントに回答を依頼する"
         category: "カテゴリー"
-        crop: "作物の種類"
+        crop: "作物"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
