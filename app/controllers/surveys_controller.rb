@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: %i[ show edit update destroy ]
-  before_action :set_q, only: [:index]
-  before_action :check_admin, only: %i[ index edit update show destroy analysis ]
+  before_action :set_survey, only: %i(show edit update destroy)
+  before_action :set_q, only: %i(index)
+  before_action :check_admin, only: %i(index edit update show destroy analysis)
 
   # GET /surveys or /surveys.json
   def index

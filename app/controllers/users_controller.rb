@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:guest_sign_in]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:guest_sign_in]
+  before_action :authenticate_user!, except: %i(guest_sign_in)
+  before_action :set_user, only: %i(show edit update destroy)
+  before_action :correct_user, only: %i(show edit update destroy)
+  skip_before_action :authenticate_user!, only: %i(guest_sign_in)
 
   def index
     @users = User.all

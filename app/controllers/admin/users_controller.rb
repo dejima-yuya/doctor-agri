@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:guest_admin_sign_in]
-  before_action :check_admin, except: [:guest_admin_sign_in]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: %i(guest_admin_sign_in)
+  before_action :check_admin, except: %i(guest_admin_sign_in)
+  before_action :set_user, only: %i(show edit update destroy)
 
   def index
     @users = User.all
