@@ -6,9 +6,9 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
     if params[:keyword].present?
-      @users = User.search_by_name(params[:keyword]).page(params[:page]).per(10)
+      @users = User.search_by_name(params[:keyword]).page(params[:page]).per(10).order(created_at: :DESC)
     else
-      @users = User.page(params[:page]).per(10)
+      @users = User.page(params[:page]).per(10).order(created_at: :DESC)
     end
   end
 

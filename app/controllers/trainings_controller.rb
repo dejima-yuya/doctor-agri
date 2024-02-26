@@ -5,7 +5,7 @@ class TrainingsController < ApplicationController
   before_action :check_admin, only: %i[new edit create update]
   # GET /trainings or /trainings.json
 def index
-  @trainings = Training.all
+  @trainings = Training.all.order(created_at: :DESC)
   if params[:title].present?
     @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%")
   end
