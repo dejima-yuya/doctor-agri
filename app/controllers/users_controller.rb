@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     redirect_to new_user_session_path, notice: 'アカウントが削除されました！'
   end
 
-  # ゲストログイン(一般ユーザー)のアクション
+  # ゲスト一般ユーザーとしてログインするためのアクション
   def guest_sign_in
     guest_user = find_or_create_guest_user
     sign_in guest_user

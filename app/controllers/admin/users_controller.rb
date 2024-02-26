@@ -47,14 +47,13 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # ゲスト管理者としてログインするためのアクションを追加
+  # ゲスト管理者としてログインするためのアクション
   def guest_admin_sign_in
-    # ゲスト管理者ユーザーを見つけるか、存在しなければ作成します
+    # ゲスト管理者ユーザーを見つける、もし存在しなければ作成する
     user = User.find_or_create_by!(name: "guest", phone_number: "00000000000", email: 'guest_admin@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.admin = true # 管理者権限を付与
+      user.admin = true
     end
-    # ゲスト管理者ユーザーでログイン
     sign_in user
     redirect_to surveys_url, notice: 'ゲスト管理者としてログインしました。'
   end
