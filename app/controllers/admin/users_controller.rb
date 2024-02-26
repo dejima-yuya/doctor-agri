@@ -4,7 +4,6 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: %i(show edit update destroy)
 
   def index
-    @users = User.all
     if params[:keyword].present?
       @users = User.search_by_name(params[:keyword]).page(params[:page]).per(10).order(created_at: :DESC)
     else

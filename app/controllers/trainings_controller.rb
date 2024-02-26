@@ -1,8 +1,8 @@
 class TrainingsController < ApplicationController
-  before_action :set_training, only: %i(show edit update destroy)
-  before_action :set_categories_and_crops, only: %i(new edit create update)
-  before_action :authenticate_user!, except: %i(index show)
   before_action :check_admin
+  before_action :set_training, only: %i(show edit update destroy)
+  before_action :set_categories_and_crops, only: %i(new create update)
+  before_action :authenticate_user!, except: %i(index show)
   
   # GET /trainings or /trainings.json
 def index

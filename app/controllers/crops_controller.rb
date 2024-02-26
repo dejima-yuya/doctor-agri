@@ -1,6 +1,6 @@
 class CropsController < ApplicationController
-  before_action :set_crop, only: %i(show edit update destroy)
   before_action :check_admin
+  before_action :set_crop, only: %i(show edit update destroy)
   
   # GET /crops or /crops.json
   def index
