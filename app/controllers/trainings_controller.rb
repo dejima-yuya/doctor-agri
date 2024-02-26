@@ -1,11 +1,12 @@
 class TrainingsController < ApplicationController
-  before_action :set_training, only: %i[ show edit update destroy ]
-  before_action :set_categories_and_crops, only: %i[new edit create update]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_admin, only: %i[new edit create update]
+  before_action :set_training, only: %i(show edit update destroy)
+  before_action :set_categories_and_crops, only: %i(new edit create update)
+  before_action :authenticate_user!, except: %i(index show)
+  before_action :check_admin
+  
   # GET /trainings or /trainings.json
 def index
-  @trainings = Training.all
+  @trainings = Training.all.order(created_at: :DESC)
   if params[:title].present?
     @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%")
   end

@@ -15,7 +15,6 @@ class User < ApplicationRecord
   before_destroy :ensure_at_least_one_admin_remains
   before_update :ensure_at_least_one_admin_remains_on_update
   
-  # ユーザー名であいまい検索を行うメソッド
   def self.search_by_name(keyword)
     if keyword.present?
       where('name LIKE ?', "%#{keyword}%")

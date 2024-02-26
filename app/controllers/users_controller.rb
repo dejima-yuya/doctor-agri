@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:guest_sign_in]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:guest_sign_in]
+  before_action :authenticate_user!, except: %i(guest_sign_in)
+  before_action :set_user, only: %i(show edit update destroy)
+  before_action :correct_user, only: %i(show edit update destroy)
+  skip_before_action :authenticate_user!, only: %i(guest_sign_in)
 
   def index
     @users = User.all
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     redirect_to new_user_session_path, notice: 'アカウントが削除されました！'
   end
 
-  # ゲストログイン(一般ユーザー)のアクション
+  # ゲスト一般ユーザーとしてログインするためのアクション
   def guest_sign_in
     guest_user = find_or_create_guest_user
     sign_in guest_user

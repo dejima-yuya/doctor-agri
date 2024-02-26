@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   # メールの送信BOXを表示させるためのルーティング
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
-  #管理者用のルーティング
+  # 管理者用のルーティング
   namespace :admin do
     resources :users
     post 'guest_admin_sign_in', to: 'users#guest_admin_sign_in', as: 'guest_admin_sign_in'
   end  
 
-  # ゲストログイン用（一般ユーザー）のルート
+  # ゲストログイン用（一般ユーザー）のルーティング
   post 'guest_sign_in', to: 'users#guest_sign_in'
 
 end
