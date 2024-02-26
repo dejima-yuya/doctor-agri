@@ -36,14 +36,14 @@ RSpec.describe Survey, type: :model do
       survey06 = Survey.create(title:"イチゴの収穫方法", is_useful:false, is_request:true, category:category03, crop:crop01, user:user01)
     end
     it "アンケートに含まれる各カテゴリーの「タイトル」と「累計数」を取得する & 各カテゴリーの累計数の降順で並び替える" do
-      def self.category_ranking
-        Survey.joins(:category).select('categories.title as category_title, count(surveys.id) as surveys_count').group('categories.id').order('surveys_count DESC')
-      end
+      category_ranking = Survey.category_ranking
+      expect(category_ranking.first.category_title).to eq("育苗")
+      expect(category_ranking.first.surveys_count).to eq(3)
     end
     it "アンケートに含まれる各作物の「タイトル」と「累計数」を取得する & 各作物の累計数の降順で並び替える" do
-      def self.crop_ranking
-        Survey.joins(:crop).select('crops.title as crop_title, count(surveys.id) as surveys_count').group('crops.id').order('surveys_count DESC')
-      end
+      crop_ranking = Survey.crop_ranking
+      expect(crop_ranking.first.crop_title).to eq("イチゴ")
+      expect(crop_ranking.first.surveys_count).to eq(3)
     end
   end
 end
