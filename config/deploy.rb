@@ -1,4 +1,4 @@
-lock '3.16.0'
+lock '3.18.0'
 
 # デプロイするアプリケーション名
 set :application, 'doctor-agri'
