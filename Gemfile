@@ -66,8 +66,13 @@ gem 'rexml'
 gem 'kaminari'
 gem 'ransack'
 gem "capistrano", "~> 3.10", require: false
+gem 'capistrano-bundler'
 gem "capistrano-rails", "~> 1.6", require: false
+gem 'capistrano-rbenv'
+gem 'capistrano3-unicorn'
 gem 'capistrano-safe-deploy-to'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 gem 'unicorn'
 gem 'devise-i18n'
 gem 'bootstrap', '~> 4.4.1'
