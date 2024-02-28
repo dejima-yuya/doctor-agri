@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: acs_app_development
+  database: doctor-agri_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: acs_app
+  #username: doctor-agri
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: acs_app_test
+  database: doctor-agri_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: acs_app_production
-  username: acs_app
-  password: <%= ENV['ACS_APP_DATABASE_PASSWORD'] %>
+  database: doctor-agri_production
+  username: doctor-agri
+  password: <%= ENV['DOCTOR_AGRI_DATABASE_PASSWORD'] %>

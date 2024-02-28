@@ -9,8 +9,8 @@
 * gem ransack
 ## 実行手順
 ```
-$ git clone git@github.com:TsuruKouhei/acs-project.git
-$ cd acs-project
+$ git clone git@github.com:dejima-yuya/doctor-agri.git
+$ cd doctor-agri
 $ bundle install
 $ yarn install
 $ rails db:create && rails db:migrate
