@@ -17,9 +17,9 @@ $ rails db:create && rails db:migrate
 $ rails s
 ```
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1Pki6_pHy6GR1Kd1n-f0usFPvvEuaxC-C5C_Rdmya9Iw/edit#gid=1245264142
+https://docs.google.com/spreadsheets/d/1XrdERofJuoJoBsJh4bcLvAwgvUTqyaFL-hiVeAlPQWk/edit#gid=1245264142
 ## テーブル定義書
-https://docs.google.com/spreadsheets/d/1Pki6_pHy6GR1Kd1n-f0usFPvvEuaxC-C5C_Rdmya9Iw/edit#gid=1707745237
+https://docs.google.com/spreadsheets/d/1XrdERofJuoJoBsJh4bcLvAwgvUTqyaFL-hiVeAlPQWk/edit#gid=1707745237
 ## ワイヤーフレーム
 https://docs.google.com/presentation/d/1yG9UPbMk0O3kFZC_L9NEeEvXAlcJC97JlmFDlE0453w/edit?usp=sharing
 ## ER図
