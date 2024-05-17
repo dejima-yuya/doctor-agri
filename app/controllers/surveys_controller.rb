@@ -37,9 +37,9 @@ class SurveysController < ApplicationController
     respond_to do |format|
       if @survey.save
         # メール送信設定
-        if @survey.is_request == true
-          SurveyMailer.with(to: "kktturu1993@gmail.com", name: "鶴").notify_admin.deliver_now
-        end
+        # if @survey.is_request == true
+        #   SurveyMailer.with(to: "imajapan.g3@gmail.com", name: "出島").notify_admin.deliver_now
+        # end
         format.html { redirect_to root_path, notice: "アンケートが送信されました！" }
         format.json { render :show, status: :created, location: @survey }
       else
