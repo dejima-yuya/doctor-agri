@@ -43,12 +43,12 @@
 <table class="table table-striped data-list mt-3" style="max-width: 93%;">
   <thead style="color: #edefef; background-color: #5fa3b4;">
     <tr>
-      <th>ユーザー名</th>
+      <th>ユーザー</th>
       <th>質問内容</th>
       <th>カテゴリー</th>
       <th>作物</th>
-      <th>チャットボット<br>が役立った</th>
-      <th>コンサルタント<br>に依頼する</th>
+      <th>チャットボットに満足</th>
+      <th>コンサルタントへ依頼</th>
       <th>アンケート日時</th>
       <th colspan="3"></th>
     </tr>
@@ -56,16 +56,16 @@
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
-        <td><%= link_to survey.user.name, admin_user_path(survey.user) %></td>
-        <td><%= survey.title %></td>
-        <td><%= survey.category.title %></td>
-        <td><%= survey.crop.title %></td>
-        <td><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
-        <td><%= survey.is_request ? 'はい' : 'いいえ' %></td>
-        <td><%= survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
-        <td><%= link_to '詳細', survey, class: 'btn btn-primary btn' %></td>
-        <td><%= link_to '編集', edit_survey_path(survey), class: 'btn btn-warning btn' %></td>
-        <td><%= link_to '削除', survey, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn' %></td>
+        <td width="8%"><%= link_to survey.user.name, admin_user_path(survey.user) %></td>
+        <td width="24%"><%= survey.title %></td>
+        <td width="8%"><%= survey.category.title %></td>
+        <td width="8%"><%= survey.crop.title %></td>
+        <td width="10%"><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
+        <td width="10%"><%= survey.is_request ? 'はい' : 'いいえ' %></td>
+        <td width="10%"><%= survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+        <td width="5%"><%= link_to '詳細', survey, class: 'btn btn-primary btn-sm' %></td>
+        <td width="5%"><%= link_to '編集', edit_survey_path(survey), class: 'btn btn-warning btn-sm' %></td>
+        <td width="5%"><%= link_to '削除', survey, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
