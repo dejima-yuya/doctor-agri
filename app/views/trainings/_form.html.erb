@@ -17,12 +17,12 @@
 
   <div class="form-group col-md-7">
     <%= form.label :category, class: 'form-label' %>
-    <%= form.collection_select :category_id, @categories, :id, :title, {}, { class: 'form-control', include_blank: true } %>
+    <%= form.collection_select :category_id, @categories, :id, :title, { include_blank: true }, { class: 'form-control' } %>
   </div>
 
   <div class="form-group col-md-7">
     <%= form.label :crop, class: 'form-label' %>
-    <%= form.collection_select :crop_id, @crops, :id, :title, {}, { class: 'form-control', include_blank: true } %>
+    <%= form.collection_select :crop_id, @crops, :id, :title, { include_blank: true }, { class: 'form-control' } %>
   </div>
 
   <div class="form-group">
