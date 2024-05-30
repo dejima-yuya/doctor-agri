@@ -1,4 +1,4 @@
-<table class="table table-striped survey-form" style="max-width: 40%;">
+<table class="table table-striped survey-info" style="max-width: 45%;">
   <thead style="color: #ffffff; background-color: #5fa3b4; text-align: center;">
     <tr>
       <th>アンケート詳細</th>
@@ -6,25 +6,25 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>質問内容</strong><br><br><%= @survey.title %></td>
+      <td style="padding-left: 12%"><strong>質問内容</strong><br><br><%= @survey.title %></td>
     </tr>
     <tr>
-      <td><strong>カテゴリー</strong><br><br><%= @survey.category.title %></td>
+      <td style="padding-left: 12%"><strong>カテゴリー</strong><br><br><%= @survey.category.title %></td>
     </tr>
     <tr>
-      <td><strong>作物</strong><br><br><%= @survey.crop.title %></td>
+      <td style="padding-left: 12%"><strong>作物</strong><br><br><%= @survey.crop.title %></td>
     </tr>
     <tr>
-      <td><strong>チャットボットが役立った</strong><br><br><%= @survey.is_useful ? 'はい' : 'いいえ' %></td>
+      <td style="padding-left: 12%"><strong>チャットボットが役立った</strong><br><br><%= @survey.is_useful ? 'はい' : 'いいえ' %></td>
     </tr>
     <tr>
-      <td><strong>コンサルタントに依頼する</strong><br><br><%= @survey.is_request ? 'はい' : 'いいえ' %></td>
+      <td style="padding-left: 12%"><strong>コンサルタントに依頼する</strong><br><br><%= @survey.is_request ? 'はい' : 'いいえ' %></td>
     </tr>
     <tr>
-      <td><strong>ユーザー名</strong><br><br><%= @survey.user.name %></td>
+      <td style="padding-left: 12%"><strong>ユーザー名</strong><br><br><%= @survey.user.name %></td>
     </tr>
     <tr>
-      <td><strong>アンケート日時</strong><br><br><%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+      <td style="padding-left: 12%"><strong>アンケート日時</strong><br><br><%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
     </tr>
   </tbody>
 </table>

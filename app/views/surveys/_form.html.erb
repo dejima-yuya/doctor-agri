@@ -9,37 +9,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group col-md-15">
-    <%= form.label :チャットボットへの質問内容, class: 'form-label' %>
-    <%= form.text_area :title, class: 'form-control' %>
-  </div>
-
-  <div class="form-group col-md-7">
-    <%= form.label :カテゴリー, class: 'form-label' %>
-    <%= form.select :category_id, @categories, {}, { class: 'form-control' } %>
-  </div>
-
-  <div class="form-group col-md-7">
-    <%= form.label :作物, class: 'form-label' %>
-    <%= form.select :crop_id, @crops, {}, { class: 'form-control' } %>
-  </div>
-
-  <div class="form-group form-check">
-    <%= form.check_box :is_useful, class: 'form-check-input' %>
-    <%= form.label :チャットボットの回答が役立った, class: 'form-check-label' %>
-  </div>
-
-  <div class="field form-check">
-    <%= form.check_box :is_request, class: 'form-check-input' %>
-    <%= form.label :コンサルタントに対応を依頼する。, class: 'form-check-label'  %>
-  </div>
-  <div id="consultant_message" style="display: none; color: #0f9bbe; text-align:center;">
-    <p>今回のアンケート内容を<br>コンサルタントへ送信します。</p>
-    <p>送信するボタンをおして返答を<br>お待ちください。</p>
-  </div>
-
-  <div class="actions text-center mt-3">
-    <%= form.submit "送信する", class: 'btn btn-primary' %>
-  </div>
+  
+  <table class="table survey-form">
+    <thead>
+      <tr>
+        <th><%= form_title %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding-left: 18%">チャットボットへの質問内容<br><br><%= form.text_area :title, style: "width:75%;", class: 'form-control survey-input' %></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 18%">カテゴリー<br><br><%= form.select :category_id, categories, {}, style: "width:40%;", class: 'form-control survey-input' %></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 18%">作物<br><br><%= form.select :crop_id, crops, {}, style: "width:40%;", class: 'form-control survey-input' %></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 23%"><%= form.check_box :is_useful, class: 'form-check-input' %>チャットボットが役立った</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 23%">
+          <%= form.check_box :is_request, class: 'form-check-input' %>コンサルタントに回答を依頼する
+          <div id="consultant_message" class="consultant-message">
+            <p>今回のアンケート内容を<br>コンサルタントへ送信します。</p>
+            <p>送信するボタンをおして返答を<br>お待ちください。</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="actions text-center mt-3">
+            <%= form.submit "送信する", class: 'btn btn-primary' %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

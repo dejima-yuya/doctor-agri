@@ -1,22 +1,12 @@
 <div class="top-container container">
   <div class="iframe-container">
     <iframe src="https://app.chatsimple.ai/iframe23/9ae1ac39-0451-48f4-a50d-8746e55ee740/84e6fda3-d9db-4ba9-a33e-361d9c533368/28753881-214d-431d-894e-60757ed26f76" 
-      height="600px" width="600px" title="Chatsimple" 
-      style="display:block;
-            margin-left:auto;
-            margin-right:auto;
-            border:none;
-            border-radius:20px;
-            box-shadow:0px 14px 28px 0px rgba(0,0,0,0.2);">
+      height="550px" width="100%" title="Chatsimple" 
+      style="display:block; margin:auto; border:none; border-radius:20px; box-shadow:0px 14px 28px 0px rgba(0,0,0,0.2);">
     </iframe>
   </div>
 
-  <div class="top-survey-form">
-    <div style="color: #ffffff; text-align :center; padding-top: 7px;">
-      <h5>サービス向上のため<br>アンケートにご協力ください<i class="fa-solid fa-pen"></i></h5>
-    </div>
-    <div class="form-group mt-4">
-      <%= render 'form', survey: @survey %>
-    </div>
+  <div class="survey-form-container">
+    <%= render 'form', survey: @survey, categories: @categories, crops: @crops, form_title: "アンケート <i class='fa-solid fa-pen'></i>".html_safe %>
   </div>
 </div>
