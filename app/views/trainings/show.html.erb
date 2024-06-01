@@ -1,24 +1,24 @@
-<div class="training-form" style="max-width: 40%;">
-  <div style="color: #ffffff; text-align: center;">
-    <h1>トレーニングデータ詳細</h1>
-  </div>
-  <table class="table table-striped mt-1">
-    <tbody>
-      <tr>
-        <td><strong>タイトル</strong><br><br><%= @training.title %></td>
-      </tr>
-      <tr>
-        <td><strong>カテゴリー</strong><br><br><%= @training.category.title %></td>
-      </tr>
-      <tr>
-        <td><strong>作物</strong><br><br><%= @training.crop.title %></td>
-      </tr>
-      <tr>
-        <td><strong>内容</strong><br><br><%= safe_join(@training.content.split("\n"),tag(:br)) %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="table table-striped training-info" style="max-width: 45%;">
+  <thead style="color: #ffffff; background-color: #ce7878; text-align: center;">
+    <tr>
+      <th>トレーニングデータ詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding-left: 5%"><strong>タイトル</strong><br><br><%= @training.title %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 5%"><strong>カテゴリー</strong><br><br><%= @training.category.title %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 5%"><strong>作物</strong><br><br><%= @training.crop.title %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 5%"><strong>内容</strong><br><br><%= safe_join(@training.content.split("\n"), tag(:br)) %></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="form-row justify-content-center mt-4">
   <%= link_to 'トレーニングデータを編集する', edit_training_path(@training), class: 'btn btn-outline-secondary custom-link' %>

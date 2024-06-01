@@ -43,9 +43,9 @@
         <td><%= training.category.title %></td>
         <td><%= training.crop.title %></td>
         <td><%= training.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
-        <td><%= link_to '詳細', training, class: 'btn btn-primary btn' %></td>
-        <td><%= link_to '編集', edit_training_path(training), class: 'btn btn-warning btn' %></td>
-        <td><%= link_to '削除', training, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn' %></td>
+        <td><%= link_to '詳細', training, class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to '編集', edit_training_path(training), class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to '削除', training, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
