@@ -15,8 +15,8 @@
       <div class="logo-container">
         <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
       </div>
-      <% if user_signed_in? %>
-        <div class="nav-container">
+      <div class="nav-container">
+        <% if user_signed_in? %>
           <div class="nav-top">
             <%= link_to new_survey_path, class: "nav-link" do %>
               <i class="fa-solid fa-robot" style="color: #5ec750"></i>
@@ -55,19 +55,19 @@
               <% end %>
             </div>
           <% end %>
-        </div>
-      <% else %>
-        <div class="nav-top">
-          <%= link_to new_user_registration_path, class: "nav-link" do %>
-            <i class="fa-regular fa-user"></i>
-            新規登録
-          <% end %>
-          <%= link_to new_user_session_path, class: "nav-link" do %>
-            <i class="fa-solid fa-right-to-bracket"></i>
-            ログイン
-          <% end %>
-        </div>
-      <% end %>
+        <% else %>
+          <div class="nav-top">
+            <%= link_to new_user_registration_path, class: "nav-link" do %>
+              <i class="fa-regular fa-user"></i>
+              新規登録
+            <% end %>
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="fa-solid fa-right-to-bracket"></i>
+              ログイン
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <% if notice.present? %>
