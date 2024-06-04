@@ -49,7 +49,7 @@ class Admin::UsersController < ApplicationController
   # ゲスト管理者としてログインするためのアクション
   def guest_admin_sign_in
     # ゲスト管理者ユーザーを見つける、もし存在しなければ作成する
-    user = User.find_or_create_by!(name: "guest", phone_number: "00000000000", email: 'guest_admin@example.com') do |user|
+    user = User.find_or_create_by!(name: "guest_admin", phone_number: "00000000000", email: 'guest_admin@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.admin = true
     end
