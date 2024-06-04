@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr>
-        <td style="padding-left: 18%">タイトル<br><br><%= form.text_field :title, style: "width:75%;", class: 'form-control training-input' %></td>
+        <td style="padding-left: 18%">タイトル<br><br><%= form.text_field :title, style: "width:80%;", class: 'form-control training-input' %></td>
       </tr>
       <tr>
         <td style="padding-left: 18%">カテゴリー<br><br><%= form.collection_select :category_id, @categories, :id, :title, { include_blank: true }, { style: "width:40%;", class: 'form-control training-input' } %></td>
@@ -27,7 +27,7 @@
         <td style="padding-left: 18%">作物<br><br><%= form.collection_select :crop_id, @crops, :id, :title, { include_blank: true }, { style: "width:40%;", class: 'form-control training-input' } %></td>
       </tr>
       <tr>
-        <td style="padding-left: 18%">内容<br><br><%= form.text_area :content, style: "width:75%;", class: 'form-control training-input', size: "65x5" %></td>
+        <td style="padding-left: 18%">内容<br><br><%= form.text_area :content, style: "width:80%;", class: 'form-control training-input', size: "65x5" %></td>
       </tr>
       <tr>
         <td>

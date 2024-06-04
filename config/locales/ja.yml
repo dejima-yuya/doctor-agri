@@ -50,10 +50,10 @@ ja:
               taken: "は既に使用されています"
         training:
           attributes:
+            category:
+              required: "を入力してください"
             crop:
               required: "を入力してください"
-            category:
-              required: "カテゴリーを入力してください"
         survey:
           attributes:
             category:
