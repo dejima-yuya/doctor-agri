@@ -1,9 +1,9 @@
-<div class="headline" style="width: 25rem; background-color: #ce7878;">
+<div class="headline" style="max-width: 25rem; background-color: #ce7878;">
   <h3 class="text-center">トレーニングデータ一覧</h3>
 </div>
 
 <%= form_with(url: trainings_path, method: :get, local: true) do |form| %>
-  <table class="table search-table mt-3" style="text-align: center; width: 800px;">
+  <table class="table search-table mt-3" style="text-align: center; max-width: 800px;">
     <tr>
     <td>
         <%= form.label :title, "タイトル", class: 'form-label mr-2' %>
