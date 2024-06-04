@@ -13,27 +13,10 @@
   <table class="table user-form" style="max-width: 40%; margin: 0 auto;">
     <thead>
       <tr>
-        <th>ユーザー情報の編集</th>
+        <th>管理者権限の編集</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>名前<br><br><%= form.text_field :name, style: "width:75%;"%></td>
-      </tr>
-      <tr>
-        <td>電話番号<br><br><%= form.text_field :phone_number, style: "width:75%;" %></td>
-      </tr>
-      <tr>
-        <td>メールアドレス<br><br><%= form.email_field :email, style: "width:75%;" %></td>
-      </tr>
-      <tr>
-        <td>パスワード（6文字以上）<br><br><%= form.password_field :password, autocomplete: "new-password", style: "width:75%;" %></td>
-      </tr>
-      <tr>
-        <td>
-          パスワード（確認用）<br><br><%= form.password_field :password_confirmation, autocomplete: "new-password", style: "width:75%;" %>
-          <p id="password-match" style="color: red;"></p>
-        </td>
       <tr>
         <td><%= form.check_box :admin %> 管理者権限</td>
       </tr>
