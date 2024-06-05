@@ -11,12 +11,11 @@ ja:
       user: "ユーザー"
       training: "トレーニングデータ"
       survey: "アンケート"
-      category: "カテゴリー"
-      crop: "作物"
     attributes:
       user:
         name: "名前"
         phone_number: "電話番号"
+        email: "メールアドレス"
       training:
         title: "タイトル"
         content: "内容"

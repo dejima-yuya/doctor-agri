@@ -1,7 +1,7 @@
 <%= form_with(model: training, html: { class: 'needs-validation', novalidate: true }) do |form| %>
   <% if training.errors.any? %>
     <div id="error_explanation" class="alert alert-danger" role="alert">
-      <h2>入力内容に誤りがあるため送信することが出来ませんでした。</h2>
+      <h2>エラーが発生したため送信することが出来ませんでした。</h2>
       <ul>
         <% training.errors.each do |error| %>
           <li><%= error.full_message %></li>
