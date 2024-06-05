@@ -33,13 +33,17 @@
 }
 
 .nav-link:hover {
-  background-color: transparent;
   color: blue;
+  background-color: transparent;
+}
+
+.custom-link {
+  background-color: #fff0d3;
 }
 
 .custom-link:hover {
-  background-color: #d8d9db;
   color: black;
+  background-color: #ffe2b4;
 }
 
 .header {
