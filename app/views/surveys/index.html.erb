@@ -3,15 +3,19 @@
 </div>
 
 <%= search_form_for @q do |f| %>
-  <table class="table search-table mt-3" style="text-align: center; max-width: 800px;">
+  <table class="table search-table mt-3" style="max-width: 800px;">
     <tr>
       <td>
-        <%= f.label :user_name, 'ユーザー名', class: 'form-label mr-2' %>
-        <%= f.search_field :user_name, value: params.dig(:q, :user_name), class: 'form-control' %>
+        <div style="display: inline-flex">
+          <%= f.label :user_name, 'ユーザー名', class: 'form-label', style: 'margin-right: 10px;' %>
+          <%= f.search_field :user_name, value: params.dig(:q, :user_name), class: 'form-control', style: 'max-width: 60%;' %>
+        </div>
       </td>
       <td>
-        <%= f.label :title_cont, '質問内容', class: 'form-label mr-2' %>
-        <%= f.search_field :title_cont, class: 'form-control' %>
+        <div style="display: flex">
+          <%= f.label :title_cont, '質問内容', class: 'form-label', style: 'margin-right: 5px;' %>
+          <%= f.search_field :title_cont, class: 'form-control', style: 'max-width: 60%;' %>
+        </div>
       </td>
     </tr>
     <tr>
@@ -26,21 +30,23 @@
     </tr>
     <tr>
       <td>
-        <%= f.label :is_useful_eq, 'チャットボットの回答が役立った', class: 'form-label' %>
+        <%= f.label :is_useful_eq, 'チャットボットが役立った', class: 'form-label' %>
         <%= f.select :is_useful_eq, [['はい', true], ['いいえ', false]], include_blank: '', class: 'form-control' %>
       </td>
       <td>
-        <%= f.label :is_request_eq, 'コンサルタントに回答を依頼する', class: 'form-label' %>
+        <%= f.label :is_request_eq, 'コンサルタントへ依頼', class: 'form-label' %>
         <%= f.select :is_request_eq, [['はい', true], ['いいえ', false]], include_blank: '', class: 'form-control' %>
       </td>
     </tr>
+    <tr>
+      <td colspan="2" class="text-center">
+        <%= f.submit "検索", class: 'btn btn-secondary' %>
+      </td>
+    </tr>
   </table>
-  <div class="col-md-12 text-center mt-3">
-    <%= f.submit '検索', class: 'btn btn-secondary btn-lg' %>
-  </div>
 <% end %>
 
-<table class="table table-striped data-list mt-3" style="max-width: 93%;">
+<table class="table table-striped data-list mt-4" style="max-width: 93%;">
   <thead style="color: #fff; background-color: #5fa3b4;">
     <tr>
       <th>ユーザー</th>
@@ -49,7 +55,7 @@
       <th>作物</th>
       <th>チャットボットに満足</th>
       <th>コンサルタントへ依頼</th>
-      <th>日時</th>
+      <th>投稿日時</th>
       <th colspan="3"></th>
     </tr>
   </thead>

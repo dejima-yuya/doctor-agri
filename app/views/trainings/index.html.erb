@@ -3,10 +3,10 @@
 </div>
 
 <%= form_with(url: trainings_path, method: :get, local: true) do |form| %>
-  <table class="table search-table mt-3" style="text-align: center; max-width: 800px;">
+  <table class="table search-table mt-3" style="max-width: 600px;">
     <tr>
-    <td>
-        <%= form.label :title, "タイトル", class: 'form-label mr-2' %>
+      <td style="text-align: center;">
+        <%= form.label :title, "タイトル", class: 'form-label' %>
         <%= form.text_field :title, value: params[:title], name: "title", class: 'form-control' %>
       </td>
     </tr>
@@ -20,13 +20,15 @@
         <%= form.select :category_id, Category.all.pluck(:title, :id), selected: params[:category_id], include_blank: true, name: "category_id", class: 'form-control' %>
       </td>
     </tr>
+    <tr>
+      <td colspan="2" class="text-center">
+        <%= form.submit "検索", class: 'btn btn-secondary' %>
+      </td>
+    </tr>
   </table>
-  <div class="text-center mt-3">
-    <%= form.submit "検索", class: 'btn btn-secondary btn-lg' %>
-  </div>
 <% end %>
 
-<table class="table table-striped data-list mt-3" style="max-width: 85%;">
+<table class="table table-striped data-list mt-4" style="max-width: 85%;">
   <thead style="color: #fff; background-color: #ce7878;">
     <tr>
       <th>タイトル</th>
