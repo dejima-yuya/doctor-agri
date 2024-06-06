@@ -1,52 +1,54 @@
-<%= form_with(model: [:admin, @user], local: true) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>入力内容に誤りがあるため送信することが出来ませんでした。</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="user-form-container" style="max-width: 40%; margin: 0 auto;">
+  <%= form_with(model: [:admin, @user], local: true) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>入力内容に誤りがあるため送信することが出来ませんでした。</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <table class="table user-form" style="max-width: 40%; margin: 0 auto;">
-    <thead>
-      <tr>
-        <th>ユーザー情報の編集</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>名前<br><br><%= form.text_field :name, style: "width:75%;"%></td>
-      </tr>
-      <tr>
-        <td>電話番号<br><br><%= form.text_field :phone_number, style: "width:75%;" %></td>
-      </tr>
-      <tr>
-        <td>メールアドレス<br><br><%= form.email_field :email, style: "width:75%;" %></td>
-      </tr>
-      <tr>
-        <td>パスワード（6文字以上）<br><br><%= form.password_field :password, autocomplete: "new-password", style: "width:75%;" %></td>
-      </tr>
-      <tr>
-        <td>
-          パスワード（確認用）<br><br><%= form.password_field :password_confirmation, autocomplete: "new-password", style: "width:75%;" %>
-          <p id="password-match" style="color: red;"></p>
-        </td>
-      <tr>
-        <td><%= form.check_box :admin %> 管理者権限</td>
-      </tr>
-      <tr>
-        <td>
-          <div class="actions text-center">
-            <%= form.submit "更新する", class: 'btn btn-primary' %>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+    <table class="table user-form">
+      <thead>
+        <tr>
+          <th>ユーザー情報の編集</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>名前<br><br><%= form.text_field :name, style: "width:75%;"%></td>
+        </tr>
+        <tr>
+          <td>電話番号<br><br><%= form.text_field :phone_number, style: "width:75%;" %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス<br><br><%= form.email_field :email, style: "width:75%;" %></td>
+        </tr>
+        <tr>
+          <td>パスワード（6文字以上）<br><br><%= form.password_field :password, autocomplete: "new-password", style: "width:75%;" %></td>
+        </tr>
+        <tr>
+          <td>
+            パスワード（確認用）<br><br><%= form.password_field :password_confirmation, autocomplete: "new-password", style: "width:75%;" %>
+            <p id="password-match" style="color: red;"></p>
+          </td>
+        <tr>
+          <td><%= form.check_box :admin %> 管理者権限</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="actions text-center">
+              <%= form.submit "更新する", class: 'btn btn-primary' %>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>
 
 <div class="form-row justify-content-center mt-4">
   <%= link_to 'ユーザー情報を確認する', admin_user_path(@user), class: 'btn btn-outline-secondary custom-link' %>
