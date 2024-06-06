@@ -63,11 +63,11 @@
     <% @surveys.each do |survey| %>
       <tr>
         <td width="9%"><%= link_to survey.user.name, admin_user_path(survey.user) %></td>
-        <td width="24%"><%= survey.title %></td>
-        <td width="7%"><%= survey.category.title %></td>
-        <td width="7%"><%= survey.crop.title %></td>
-        <td width="10%"><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
-        <td width="10%"><%= survey.is_request ? 'はい' : 'いいえ' %></td>
+        <td width="20%"><%= survey.title %></td>
+        <td width="8%"><%= survey.category.title %></td>
+        <td width="8%"><%= survey.crop.title %></td>
+        <td width="11%"><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
+        <td width="11%"><%= survey.is_request ? 'はい' : 'いいえ' %></td>
         <td width="12%"><%= survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
         <td width="7%"><%= link_to '詳細', survey, class: 'btn btn-primary btn-sm' %></td>
         <td width="7%"><%= link_to '編集', edit_survey_path(survey), class: 'btn btn-warning btn-sm' %></td>
