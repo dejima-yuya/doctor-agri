@@ -1,24 +1,24 @@
-<div class="user-form mt-4" style="max-width: 30%;">
-  <div style="color: #ffffff; text-align: center;">
-    <h1>ユーザー情報</h1>
-  </div>
-  <table class="table table-striped mt-1">
-    <tbody>
-      <tr>
-        <td><strong>名前</strong><br><br><%= @user.name %></td>
-      </tr>
-      <tr>
-        <td><strong>電話番号</strong><br><br><%= @user.phone_number %></td>
-      </tr>
-      <tr>
-        <td><strong>メールアドレス</strong><br><br><%= @user.email %></td>
-      </tr>
-      <tr>
-        <td><strong>管理者権限</strong><br><br><%= @user.admin ? "あり" : "なし" %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="table table-striped user-info" style="max-width: 40%; margin: 0 auto;">
+  <thead>
+    <tr>
+      <th>ユーザー情報</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>名前</strong><br><br><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td><strong>電話番号</strong><br><br><%= @user.phone_number %></td>
+    </tr>
+    <tr>
+      <td><strong>メールアドレス</strong><br><br><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td><strong>管理者権限</strong><br><br><%= @user.admin ? "あり" : "なし" %></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="form-row justify-content-center mt-4">
   <%= link_to 'ユーザー情報を編集する', edit_admin_user_path(@user), class: 'btn btn-outline-secondary custom-link' %>

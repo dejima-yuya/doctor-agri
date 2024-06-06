@@ -3,10 +3,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :phone_number, presence: true
-  validates :password, presence: true
   validates :phone_number, presence: true, format: { with: /\A\+?\d+\z/, message: "は半角数字のみで入力してください" },
                                             length: { minimum: 10, maximum: 11, message: "は10桁または11桁で入力してください" }
   validate :phone_number_must_not_contain_hyphens
+  validates :password, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -40,7 +40,6 @@ class User < ApplicationRecord
     end
   end
 
-  # 電話番号にハイフンが含まれていないことを検証するカスタムバリデーション
   def phone_number_must_not_contain_hyphens
     if phone_number.present? && phone_number.match?(/-/)
       errors.add(:phone_number, "にハイフンは入れないでください")

@@ -1,35 +1,35 @@
-<div class="survey-form mt-4" style="max-width: 30%;">
-  <div style="color: #ffffff; text-align: center;">
-    <h1>アンケートの詳細</h1>
-  </div>
-  <table class="table table-striped mt-1">
-    <tbody>
-      <tr>
-        <td><strong>質問内容</strong><br><br><%= @survey.title %></td>
-      </tr>
-      <tr>
-        <td><strong>カテゴリー</strong><br><br><%= @survey.category.title %></td>
-      </tr>
-      <tr>
-        <td><strong>作物</strong><br><br><%= @survey.crop.title %></td>
-      </tr>
-      <tr>
-        <td><strong>チャットボットが役立った</strong><br><br><%= @survey.is_useful ? 'はい' : 'いいえ' %></td>
-      </tr>
-      <tr>
-        <td><strong>コンサルタントに依頼する</strong><br><br><%= @survey.is_request ? 'はい' : 'いいえ' %></td>
-      </tr>
-      <tr>
-        <td><strong>ユーザー名</strong><br><br><%= @survey.user.name %></td>
-      </tr>
-      <tr>
-        <td><strong>アンケート日時</strong><br><br><%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="table table-striped survey-info" style="max-width: 45%;">
+  <thead>
+    <tr>
+      <th>アンケート詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding-left: 12%"><strong>質問内容</strong><br><br><%= @survey.title %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 12%"><strong>カテゴリー</strong><br><br><%= @survey.category.title %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 12%"><strong>作物</strong><br><br><%= @survey.crop.title %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 12%"><strong>チャットボットが役立った</strong><br><br><%= @survey.is_useful ? 'はい' : 'いいえ' %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 12%"><strong>コンサルタントに依頼する</strong><br><br><%= @survey.is_request ? 'はい' : 'いいえ' %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 12%"><strong>ユーザー名</strong><br><br><%= @survey.user.name %></td>
+    </tr>
+    <tr>
+      <td style="padding-left: 12%"><strong>投稿日時</strong><br><br><%= @survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="form-row justify-content-center mt-4 mb-5">
+<div class="form-row justify-content-center mt-4">
   <%= link_to 'アンケートを修正する', edit_survey_path(@survey), class: 'btn btn-outline-secondary custom-link' %>
   <%= link_to 'アンケート一覧', surveys_path, class: 'btn btn-outline-secondary custom-link' %>
 </div>

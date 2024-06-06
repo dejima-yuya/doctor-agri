@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DoctorAgri</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,77 +12,80 @@
 
   <body>
     <div class="header">
-      <div class="logo-container">
-        <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
-      </div>
-      <div class="menu-container">
-        <div id="hamburger-menu">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+      <div class="nav-container">
+        <% if user_signed_in? %>
+          <div class="nav-top">
+            <div class="nav-top-left">
+              <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
+            </div>
+            <div class="nav-top-right">
+              <%= link_to new_survey_path, class: "nav-link" do %>
+                <i class="fa-solid fa-robot" style="color: #5ec750"></i>
+                チャットボット
+              <% end %>
+              <%= link_to user_path(current_user), class: "nav-link" do %>
+                <i class="fa-solid fa-user"></i>
+                プロフィール
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                ログアウト
+              <% end %>
+            </div>
+          </div>
+          <% if current_user&.admin? %>
+            <div class="nav-bottom">
+              <%= link_to surveys_path, class: "nav-link" do %>
+                <i class="fa-solid fa-comment"></i>
+                アンケート一覧
+              <% end %>
+              <%= link_to analysis_surveys_path, class: "nav-link" do %>
+                <i class="fa-solid fa-ranking-star"></i>
+                アンケート分析
+              <% end %>
+              <%= link_to trainings_path, class: "nav-link" do %>
+                <i class="fa-solid fa-database"></i>
+                トレーニングデータ一覧
+              <% end %>
+              <%= link_to new_training_path, class: "nav-link" do %>
+                <i class="fa-solid fa-circle-plus"></i>
+                トレーニングデータ新規
+              <% end %>
+              <%= link_to admin_users_path, class: "nav-link" do %>
+                <i class="fa-solid fa-users"></i>
+                ユーザー一覧
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="nav-top">
+            <div class="nav-top-left">
+              <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
+            </div>
+            <div class="nav-top-right">
+              <%= link_to new_user_registration_path, class: "nav-link" do %>
+                <i class="fa-regular fa-user"></i>
+                新規登録
+              <% end %>
+              <%= link_to new_user_session_path, class: "nav-link" do %>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                ログイン
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
-    <nav id="side-nav" class="nav-links">
-      <div id="close-menu">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <% if current_user&.admin? %>
-        <%= link_to surveys_path, class: "nav-link" do %>
-          <i class="fa-solid fa-comment"></i>
-          アンケート一覧
-        <% end %>
-        <%= link_to analysis_surveys_path, class: "nav-link" do %>
-          <i class="fa-solid fa-ranking-star"></i>
-          アンケート分析
-        <% end %>
-        <%= link_to admin_users_path, class: "nav-link" do %>
-          <i class="fa-solid fa-users"></i>
-          ユーザー一覧
-        <% end %>
-        <%= link_to trainings_path, class: "nav-link" do %>
-          <i class="fa-solid fa-database"></i>
-          トレーニングデータ一覧
-        <% end %>
-        <%= link_to new_training_path, class: "nav-link" do %>
-          <i class="fa-solid fa-circle-plus"></i>
-          トレーニングデータ新規登録
-        <% end %>
-      <% end %>
-
-      <% if user_signed_in? %>
-        <%= link_to new_survey_path, class: "nav-link" do %>
-          <i class="fa-solid fa-robot"></i>
-          チャットボット
-        <% end %>
-        <%= link_to user_path(current_user), class: "nav-link" do %>
-          <i class="fa-solid fa-user"></i>
-          プロフィール
-        <% end %>
-        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-          <i class="fa-solid fa-right-from-bracket"></i>
-          ログアウト
-        <% end %>
-
-      <% else %>
-        <%= link_to new_user_registration_path, class: "nav-link" do %>
-          <i class="fa-regular fa-user"></i>
-          新規登録
-        <% end %>
-        <%= link_to new_user_session_path, class: "nav-link" do %>
-          <i class="fa-solid fa-right-to-bracket"></i>
-          ログイン
-        <% end %>
-      <% end %>
-    </nav>
     <% if notice.present? %>
       <p id="notice" class="flash-message"><%= notice %></p>
     <% end %>
     <%= yield %>
+
     <footer class="footer">
       <div class="container text-center">
         <p class="copyright">&copy; 2024 DoctorAgri. All rights reserved.</p>
       </div>
     </footer>
-
   </body>
 </html>

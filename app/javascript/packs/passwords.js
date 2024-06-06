@@ -6,7 +6,7 @@ document.addEventListener("turbolinks:load", function() {
   function validatePassword() {
     if (password.value !== confirmation.value) {
       if (confirmation.value === '') {
-        matchMessage.textContent = ''; // 確認パスワードが空の場合はメッセージをクリア
+        matchMessage.textContent = '';
       } else {
         matchMessage.textContent = "パスワードが一致しません。";
         matchMessage.style.color = 'red';

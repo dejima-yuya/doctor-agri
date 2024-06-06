@@ -1,17 +1,21 @@
-<div class="headline mt-4" style="width: 20rem; background-color: #5fa3b4;">
+<div class="headline" style="width: 20rem; background-color: #5fa3b4;">
   <h3 class="text-center">アンケート一覧</h3>
 </div>
 
 <%= search_form_for @q do |f| %>
-  <table class="table search-table mt-3" style="text-align: center; width: 800px;">
+  <table class="table search-table mt-3" style="max-width: 800px;">
     <tr>
       <td>
-        <%= f.label :user_name, 'ユーザー名', class: 'form-label mr-2' %>
-        <%= f.search_field :user_name, value: params.dig(:q, :user_name), class: 'form-control' %>
+        <div style="display: inline-flex">
+          <%= f.label :user_name, 'ユーザー名', class: 'form-label', style: 'margin-right: 10px;' %>
+          <%= f.search_field :user_name, value: params.dig(:q, :user_name), class: 'form-control', style: 'max-width: 60%;' %>
+        </div>
       </td>
       <td>
-        <%= f.label :title_cont, '質問内容', class: 'form-label mr-2' %>
-        <%= f.search_field :title_cont, class: 'form-control' %>
+        <div style="display: flex">
+          <%= f.label :title_cont, '質問内容', class: 'form-label', style: 'margin-right: 5px;' %>
+          <%= f.search_field :title_cont, class: 'form-control', style: 'max-width: 60%;' %>
+        </div>
       </td>
     </tr>
     <tr>
@@ -26,51 +30,53 @@
     </tr>
     <tr>
       <td>
-        <%= f.label :is_useful_eq, 'チャットボットの回答が役立った', class: 'form-label' %>
+        <%= f.label :is_useful_eq, 'チャットボットが役立った', class: 'form-label' %>
         <%= f.select :is_useful_eq, [['はい', true], ['いいえ', false]], include_blank: '', class: 'form-control' %>
       </td>
       <td>
-        <%= f.label :is_request_eq, 'コンサルタントに回答を依頼する', class: 'form-label' %>
+        <%= f.label :is_request_eq, 'コンサルタントへ依頼', class: 'form-label' %>
         <%= f.select :is_request_eq, [['はい', true], ['いいえ', false]], include_blank: '', class: 'form-control' %>
       </td>
     </tr>
+    <tr>
+      <td colspan="2" class="text-center">
+        <%= f.submit "検索", class: 'btn btn-secondary' %>
+      </td>
+    </tr>
   </table>
-  <div class="col-md-12 text-center mt-3">
-    <%= f.submit '検索', class: 'btn btn-secondary btn-lg' %>
-  </div>
 <% end %>
 
-<table class="table table-striped data-list mt-3" style="max-width: 93%;">
-  <thead style="color: #edefef; background-color: #5fa3b4;">
+<table class="table table-striped data-list mt-4" style="max-width: 93%;">
+  <thead style="color: #fff; background-color: #5fa3b4;">
     <tr>
-      <th>ユーザー名</th>
+      <th>ユーザー</th>
       <th>質問内容</th>
-      <th>カテゴリー</th>
+      <th>カテゴリ</th>
       <th>作物</th>
-      <th>チャットボット<br>が役立った</th>
-      <th>コンサルタント<br>に依頼する</th>
-      <th>アンケート日時</th>
+      <th>チャットボットに満足</th>
+      <th>コンサルタントへ依頼</th>
+      <th>投稿日時</th>
       <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
-        <td><%= link_to survey.user.name, admin_user_path(survey.user) %></td>
-        <td><%= survey.title %></td>
-        <td><%= survey.category.title %></td>
-        <td><%= survey.crop.title %></td>
-        <td><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
-        <td><%= survey.is_request ? 'はい' : 'いいえ' %></td>
-        <td><%= survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
-        <td><%= link_to '詳細', survey, class: 'btn btn-primary btn' %></td>
-        <td><%= link_to '編集', edit_survey_path(survey), class: 'btn btn-warning btn' %></td>
-        <td><%= link_to '削除', survey, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn' %></td>
+        <td width="9%"><%= link_to survey.user.name, admin_user_path(survey.user) %></td>
+        <td width="24%"><%= survey.title %></td>
+        <td width="7%"><%= survey.category.title %></td>
+        <td width="7%"><%= survey.crop.title %></td>
+        <td width="10%"><%= survey.is_useful ? 'はい' : 'いいえ' %></td>
+        <td width="10%"><%= survey.is_request ? 'はい' : 'いいえ' %></td>
+        <td width="12%"><%= survey.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+        <td width="7%"><%= link_to '詳細', survey, class: 'btn btn-primary btn-sm' %></td>
+        <td width="7%"><%= link_to '編集', edit_survey_path(survey), class: 'btn btn-warning btn-sm' %></td>
+        <td width="7%"><%= link_to '削除', survey, method: :delete, data: { confirm: '削除しますがよろしいですか?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<div class="pagination mt-4 mb-5">
+<div class="pagination mt-4">
   <%= paginate @surveys %>
 </div>

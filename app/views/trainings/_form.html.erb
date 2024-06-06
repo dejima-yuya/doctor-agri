@@ -1,7 +1,7 @@
 <%= form_with(model: training, html: { class: 'needs-validation', novalidate: true }) do |form| %>
   <% if training.errors.any? %>
     <div id="error_explanation" class="alert alert-danger" role="alert">
-      <h2>入力内容に誤りがあるため送信することが出来ませんでした。</h2>
+      <h2>エラーが発生したため送信することが出来ませんでした。</h2>
       <ul>
         <% training.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -9,28 +9,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group col-md-15">
-    <%= form.label :title, class: 'form-label' %>
-    <%= form.text_field :title, class: 'form-control', size: "40" %>
-  </div>
-
-  <div class="form-group col-md-7">
-    <%= form.label :category, class: 'form-label' %>
-    <%= form.collection_select :category_id, @categories, :id, :title, {}, { class: 'form-control', include_blank: true } %>
-  </div>
-
-  <div class="form-group col-md-7">
-    <%= form.label :crop, class: 'form-label' %>
-    <%= form.collection_select :crop_id, @crops, :id, :title, {}, { class: 'form-control', include_blank: true } %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :content, class: 'form-label' %>
-    <%= form.text_area :content, class: 'form-control', size: "65x5" %>
-  </div>
-
-  <div class="actions text-center mt-3">
-    <%= form.submit "送信する", class: 'btn btn-primary' %>
-  </div>
+  
+  <table class="table training-form">
+    <thead>
+      <tr>
+        <th><%= form_title %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding-left: 18%">タイトル<br><br><%= form.text_field :title, style: "width:80%;", class: 'form-control training-input' %></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 18%">カテゴリー<br><br><%= form.collection_select :category_id, @categories, :id, :title, { include_blank: true }, { style: "width:40%;", class: 'form-control training-input' } %></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 18%">作物<br><br><%= form.collection_select :crop_id, @crops, :id, :title, { include_blank: true }, { style: "width:40%;", class: 'form-control training-input' } %></td>
+      </tr>
+      <tr>
+        <td style="padding-left: 18%">内容<br><br><%= form.text_area :content, style: "width:80%;", class: 'form-control training-input', size: "65x5" %></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="actions text-center mt-3">
+            <%= form.submit "送信する", class: 'btn btn-primary' %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
