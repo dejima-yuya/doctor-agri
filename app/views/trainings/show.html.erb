@@ -17,6 +17,9 @@
     <tr>
       <td style="padding-left: 5%"><strong>内容</strong><br><br><%= safe_join(@training.content.split("\n"), tag(:br)) %></td>
     </tr>
+    <tr>
+      <td style="padding-left: 5%"><strong>更新日時</strong><br><br><%= @training.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+    </tr>
   </tbody>
 </table>
 
