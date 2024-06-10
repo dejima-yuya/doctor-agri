@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :top
   resources :trainings
   devise_for :users
-  root 'surveys#new'
+  root 'top#index'
   resources :crops
   resources :categories
   resources :surveys do

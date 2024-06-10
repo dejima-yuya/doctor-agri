@@ -27,6 +27,10 @@
                 <i class="fa-solid fa-user"></i>
                 プロフィール
               <% end %>
+              <%= link_to top_index_path, class: "nav-link" do %>
+                <i class="fa-solid fa-file"></i>
+                アプリ説明
+              <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
                 <i class="fa-solid fa-right-from-bracket"></i>
                 ログアウト
@@ -63,6 +67,10 @@
               <%= link_to image_tag('corporate_logo2.webp', alt: 'agri', class: 'logo'), root_path %>
             </div>
             <div class="nav-top-right">
+              <%= link_to top_index_path, class: "nav-link" do %>
+                <i class="fa-solid fa-file"></i>
+                アプリ説明
+              <% end %>
               <%= link_to new_user_session_path, class: "nav-link" do %>
                 <i class="fa-solid fa-right-to-bracket"></i>
                 ログイン
