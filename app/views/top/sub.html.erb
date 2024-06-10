@@ -8,17 +8,18 @@
     <ul>
       <li>アンケートの表示機能。</li>
       <li>アンケートのランキング表示機能。</li>
-      <li>トレーニングデータの作成・表示・編集・削除機能。</li>
+      <li>トレーニングデータの登録・表示・編集・削除機能。</li>
       <li>ユーザー情報の表示機能。</li>
     </ul>
-      <strong style="font-size: 1.2rem; color: #cf4d4d;">【トレーニングデータをチャットボットへ学習させる方法 <i class="fa-solid fa-robot"></i> 】</strong>
-      <p>ドクターアグリはチャットボット機能を外部サービスである『Chatsimple (チャットボット作成サービス)』で作成しています。
-      <br>『Chatsimple』のトレーニング機能を使用することで、ドクターアグリに作成した独自のトレーニングデータをチャットボットへ学習させることができます。
-      <ol>
-        <li>『Chatsimple』にログインし、Training Materials を選択します。</li>
-        <li>ドクターアグリの <%= link_to 'トレーニングデータ一覧画面', trainings_path %> のURLをコピーし、上記 1. のURL入力フォームに貼り付けます。</li>
-        <li>Fetch URL をクリックし、トレーニングデータをチャットボットへ学習させます。</li>
-      </ol>
-      </p>
+    <strong style="font-size: 1.2rem; color: #cf4d4d;">【トレーニングデータをチャットボットへ学習させる方法 <i class="fa-solid fa-robot"></i> 】</strong>
+    <p>
+      ドクターアグリは外部サービスである『Chatsimple (チャットボット作成サービス)』を使用してチャットボットを作成しています。
+      <br>『Chatsimple』のトレーニング機能を使用することで、ドクターアグリに登録した独自の情報(トレーニングデータ)をチャットボットへ学習させることができます。
+    </p>
+    <ol>
+      <li>『Chatsimple』にログインし、Training Materials を選択します。</li>
+      <li>ドクターアグリの <%= link_to 'トレーニングデータ一覧画面', trainings_path %> のURLをコピーし、上記 1. のURL入力フォームに貼り付けます。</li>
+      <li>Fetch URL をクリックし、トレーニングデータをチャットボットへ学習させます。</li>
+    </ol>
   </div>
 </div>
