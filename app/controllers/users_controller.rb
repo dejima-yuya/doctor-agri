@@ -22,24 +22,23 @@ class UsersController < ApplicationController
     end
   
     if @user.update(user_params)
-      bypass_sign_in(@user) # ユーザーを再認証
-      redirect_to @user, notice: 'プロフィールが更新されました！'
+      bypass_sign_in(@user)
+      redirect_to @user, notice: 'プロフィールが更新されました。'
     else
       render :edit
     end
   end
   
-
   def destroy
     @user.destroy
-    redirect_to new_user_session_path, notice: 'アカウントが削除されました！'
+    redirect_to new_user_session_path, notice: 'アカウントが削除されました。'
   end
 
   # ゲスト一般ユーザーとしてログインするためのアクション
   def guest_sign_in
     guest_user = find_or_create_guest_user
     sign_in guest_user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to new_survey_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private

@@ -32,7 +32,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to admin_user_url(@user), notice: 'ユーザ情報が更新されました！'
+      redirect_to admin_user_url(@user), notice: 'ユーザ情報が更新されました。'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      redirect_to admin_users_url, notice: 'ユーザが削除されました！'
+      redirect_to admin_users_url, notice: 'ユーザが削除されました。'
     else
       redirect_to admin_users_url, alert: @user.errors.full_messages.to_sentence
     end
@@ -54,7 +54,7 @@ class Admin::UsersController < ApplicationController
       user.admin = true
     end
     sign_in user
-    redirect_to surveys_url, notice: 'ゲスト管理者としてログインしました。'
+    redirect_to sub_top_index_path, notice: 'ゲスト管理者としてログインしました。'
   end
 
   private

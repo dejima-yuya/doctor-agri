@@ -1,0 +1,26 @@
+<div class="headline" style="text-align: center; background-color: #58b74c;">
+  <div>農業お悩み解決サイト</div>
+  <h3>【ドクターアグリ】</h3>
+</div>
+
+<div class="app-info mt-4 mb-4" style="max-width: 60%; background-color: #def9eb;">
+  <h3 style="color: #0f9000;">ドクターアグリとは</h3>
+  <div>
+    <ol>
+      <li>農業に関する悩みをチャットボットに相談することができます。</li>
+      <li>チャットボットの回答に満足できない場合などには、農業コンサルタントへ回答を依頼することができます。</li>
+    </ol>
+    <br>
+    <p>
+      <strong style="font-size: 1.2rem; color: #0f9000;">【アンケートへの回答のお願い】</strong>
+      <br>ドクターアグリではアンケートへの回答にご協力いただくことで、チャットボットの回答精度が向上していきます。
+      <br>回答精度向上のため、アンケートへのご協力を賜りますようお願い申し上げます。
+    </p>
+  </div>
+</div>
+
+<% unless user_signed_in? %>
+  <div class="row justify-content-center">
+    <%= link_to t('ログイン画面へ'), new_session_path(:user), class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>

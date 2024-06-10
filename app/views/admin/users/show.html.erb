@@ -17,6 +17,9 @@
     <tr>
       <td><strong>管理者権限</strong><br><br><%= @user.admin ? "あり" : "なし" %></td>
     </tr>
+    <tr>
+      <td><strong>登録日時</strong><br><br><%= @user.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+    </tr>
   </tbody>
 </table>
 

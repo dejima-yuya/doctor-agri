@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :top do
+    get 'sub', on: :collection
+  end
   resources :trainings
   devise_for :users
-  root 'surveys#new'
+  root 'top#index'
   resources :crops
   resources :categories
   resources :surveys do

@@ -6,7 +6,7 @@ class TrainingsController < ApplicationController
   
   # GET /trainings or /trainings.json
 def index
-  @trainings = Training.all.order(created_at: :DESC)
+  @trainings = Training.all.order(updated_at: :DESC)
   if params[:title].present?
     @trainings = @trainings.where("title LIKE ?", "%#{params[:title]}%")
   end
