@@ -54,7 +54,7 @@ class Admin::UsersController < ApplicationController
       user.admin = true
     end
     sign_in user
-    redirect_to surveys_url, notice: 'ゲスト管理者としてログインしました。'
+    redirect_to sub_top_index_path, notice: 'ゲスト管理者としてログインしました。'
   end
 
   private

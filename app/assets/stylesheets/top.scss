@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .headline {
   width: 25rem;
-  background-color: #5fa3b4;
   > div {
     font-size: 1.2rem;
   }
@@ -16,12 +15,15 @@
   box-shadow: 0px 14px 28px 0px rgba(0,0,0,0.2);
   width: 100%;
   padding: 20px;
-  background-color: #def9eb;
+  div p {
+    line-height: 1.5;
+    font-size: 1.0rem;
+  }
   div ol {
     line-height: 1.5;
     font-size: 1.0rem;
   }
-  div p {
+  div ul {
     line-height: 1.5;
     font-size: 1.0rem;
   }

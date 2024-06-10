@@ -40,24 +40,28 @@
           <% if current_user&.admin? %>
             <div class="nav-bottom">
               <%= link_to surveys_path, class: "nav-link" do %>
-                <i class="fa-solid fa-comment"></i>
+                <i class="fa-solid fa-comment" style="color: #5fa3b4"></i>
                 アンケート一覧
               <% end %>
               <%= link_to analysis_surveys_path, class: "nav-link" do %>
-                <i class="fa-solid fa-ranking-star"></i>
+                <i class="fa-solid fa-ranking-star" style="color: #5fa3b4"></i>
                 アンケート分析
               <% end %>
               <%= link_to trainings_path, class: "nav-link" do %>
-                <i class="fa-solid fa-database"></i>
+                <i class="fa-solid fa-database" style="color: #ce7878"></i>
                 トレーニングデータ一覧
               <% end %>
               <%= link_to new_training_path, class: "nav-link" do %>
-                <i class="fa-solid fa-circle-plus"></i>
+                <i class="fa-solid fa-circle-plus" style="color: #ce7878"></i>
                 トレーニングデータ新規
               <% end %>
               <%= link_to admin_users_path, class: "nav-link" do %>
                 <i class="fa-solid fa-users"></i>
                 ユーザー一覧
+              <% end %>
+              <%= link_to sub_top_index_path, class: "nav-link" do %>
+                <i class="fa-solid fa-file"></i>
+                管理者機能説明
               <% end %>
             </div>
           <% end %>

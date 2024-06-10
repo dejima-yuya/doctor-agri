@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :top
+  resources :top do
+    get 'sub', on: :collection
+  end
   resources :trainings
   devise_for :users
   root 'top#index'
